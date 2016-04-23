@@ -3,7 +3,7 @@
 module.exports = {
 
   development: {
-    client: 'pq',
+    client: 'pg',
     connection: {
       database: 'discover_app'
     }

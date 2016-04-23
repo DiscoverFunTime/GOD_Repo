@@ -12,6 +12,7 @@ const knex = require("./db/knex")
 const flash = require("connect-flash")
 
 // SET UP MIDDLEWARE
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
 app.use(morgan('dev'));
