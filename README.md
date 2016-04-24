@@ -1,5 +1,4 @@
 # Fork and Clone
-***
 
 ####Fork and clone this repo to your github.
 
@@ -11,7 +10,6 @@ We should all be on the same page.
 
    
 # Resources  
-***
 
 #### UX/UI Inspiration
 - Here is a [Project Inspiration Clipboard](https://docs.google.com/document/d/17lhahHOPYdyas0lQFyYU2yuIySSUTx4SQkbPJmLIAzk/edit#) I create in google doc. They are some mobile UI references.
@@ -25,7 +23,6 @@ We should all be on the same page.
 
 
 # Features
-***
 
 #### MUST HAVE:  
 - Full CRUD for user and photo.  
@@ -42,7 +39,6 @@ We should all be on the same page.
 
 
 ## Specs
-***
 
 #### REQUIREMENTS
 * **Database.** Your app needs to have at least 3 resources with appropriate associations and validations.
