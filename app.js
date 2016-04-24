@@ -10,6 +10,7 @@ const userRoutes = require("./routes/users")
 const session = require("cookie-session");
 const knex = require("./db/knex")
 const flash = require("connect-flash")
+const passport = require("passport")
 
 // SET UP MIDDLEWARE
 app.use(express.static(__dirname + '/public'));
@@ -19,8 +20,9 @@ app.use(morgan('dev'));
 app.set("view engine", "jade");
 
 app.use(session({secret: process.env.SECRET}));
-
 app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/users',userRoutes)
 
