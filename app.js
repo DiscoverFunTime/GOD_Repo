@@ -39,9 +39,9 @@ app.get('/',function(req,res){
 
 
 // ERROR
-app.get('*', function(req, res){
-  res.render('404')
-});
+// app.get('*', function(req, res){
+//   res.render('404')
+// });
 
 
 // listen
