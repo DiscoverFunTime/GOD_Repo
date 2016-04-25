@@ -3,3 +3,6 @@ extends ../layout.jade
 block content
   h1 This is the FAKE User index page
   p Let's build a awesome project together!
+
+  form(action="/auth/logout")
+    input(type="submit" value="logout").btn.btn-default
