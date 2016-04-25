@@ -6,7 +6,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 const morgan = require("morgan");
-const userRoutes = require("./routes/users")
+const routes = require("./routes/index")
 const session = require("cookie-session");
 const knex = require("./db/knex")
 const flash = require("connect-flash")
@@ -24,11 +24,17 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/users',userRoutes)
+app.use('/users',routes.users)
+app.use('/photos',routes.photos)
+app.use('/auth',routes.auth)
+app.use('/clans',routes.clans)
+
+
+
 
 // ROOT ROUTE
 app.get('/',function(req,res){
-  res.render('index')
+  res.render('auth')
 })
 
 
