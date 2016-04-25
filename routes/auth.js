@@ -13,6 +13,7 @@ passport.use(new LocalStrategy({
   passwordField:'user[password]',
   passReqToCallback:true
 }, function(req,username,password,done){
+  // eval(require('locus'))
   // find username in db
   knex('users').where('username',username).first().then(function(user){
     // cannot find user in db
@@ -81,14 +82,15 @@ router.get('/login',function(req,res){
   res.render("auth")
 });
 
-router.post('/login', function(req,res){
-  passport.authentication('local',{
+router.post('/login',
+  // eval(require('locus'))
+  passport.authenticate('local',{
     successRedirect:'/users',
     failureRedirect:'auth/login',
     failureFlash:true,
     successFlash:true
   })
-});
+);
 
 router.get('/logout',function(req,res){
   req.logout();

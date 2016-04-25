@@ -3,7 +3,7 @@ extends ./layout.jade
 block content
   div.container-fluid
     h3 Existing User Login
-    form(action="/auth" method="POST")
+    form(action="/auth/login" method="POST")
       label username or email
       input(type="text" name="user[username]")
       br
