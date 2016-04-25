@@ -18,6 +18,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
 app.use(morgan('dev'));
 app.set("view engine", "jade");
+app.set('views', __dirname + '/fakeViews'); // Forces server to load fakeViews; comment out for real views
 
 app.use(session({secret: process.env.SECRET}));
 app.use(flash());
@@ -34,7 +35,7 @@ app.use('/clans',routes.clans)
 
 // ROOT ROUTE
 app.get('/',function(req,res){
-  res.render('auth')
+  res.render('index')
 })
 
 
