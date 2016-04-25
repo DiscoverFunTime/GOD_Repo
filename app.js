@@ -6,10 +6,11 @@ const app = express();
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 const morgan = require("morgan");
-const userRoutes = require("./routes/users")
+const routes = require("./routes/index")
 const session = require("cookie-session");
 const knex = require("./db/knex")
 const flash = require("connect-flash")
+const passport = require("passport")
 
 // SET UP MIDDLEWARE
 app.use(express.static(__dirname + '/public'));
@@ -19,21 +20,28 @@ app.use(morgan('dev'));
 app.set("view engine", "jade");
 
 app.use(session({secret: process.env.SECRET}));
-
 app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 
-app.use('/users',userRoutes)
+app.use('/users',routes.users)
+app.use('/photos',routes.photos)
+app.use('/auth',routes.auth)
+app.use('/clans',routes.clans)
+
+
+
 
 // ROOT ROUTE
 app.get('/',function(req,res){
-  res.render('index')
+  res.render('auth')
 })
 
 
 // ERROR
-app.get('*', function(req, res){
-  res.render('404')
-});
+// app.get('*', function(req, res){
+//   res.render('404')
+// });
 
 
 // listen
