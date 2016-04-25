@@ -28,13 +28,10 @@ We should all be on the same page.
 ***
 
 #### MUST HAVE:  
-- Full CRUD for user and photo.
-- Authentication/Authorization using Passport (OAuth via IG?)
+- Full CRUD for user and photo.  
 
 #### NICE TO HAVE
-- Clans (I know it's core functionality but I think it's most important to get single-user stuff working first)
-- Upvotes/Likes/Whatever
-- Comments
+- ....
     
 
 
