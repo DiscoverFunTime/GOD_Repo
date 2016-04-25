@@ -5,11 +5,11 @@ const knex = require("../db/knex")
 
 
 router.get('/',function(req,res){
-  res.render("index")
+  res.render("auth")
 })
 
 router.get('/',function(req,res){
-  res.render("index")
+  res.render("auth")
 })
 
 

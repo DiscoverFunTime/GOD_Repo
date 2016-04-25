@@ -2,10 +2,82 @@
 extends ./layout.jade
 
 block content
-  h1 WELCOME PAGE
-  p Let's build a awesome project together!
+ a(href="/about" class="link") About 
+ h1 WELCOME PAGE
+ p Let's build a awesome project together!
+ 
+   //- Status bar overlay for fullscreen mode
+ div(class="statusbar-overlay")
+   //- <!-- Panels overlay-->
+ div(class="panel-overlay")
+   //- <!-- Left panel with reveal effect-->
+ div(class="panel panel-left panel-reveal")
+  div(class="content-block")
+    p Left panel content goes here
 
-  a(href='/users' class='btn btn-info') 	Login/Signup Page
-  a(href='/associates/#{associate.id}/show' class='btn btn-info') 	Show
-  a(href='/associates/#{associate.id}/show' class='btn btn-info') 	Show
-  a(href='/associates/#{associate.id}/show' class='btn btn-info') 	Show
+   //- <!-- Right panel with cover effect-->
+ div(class="panel panel-right panel-cover")
+  div(class="content-block")
+    p Right panel content goes here
+
+   //- <!-- Views-->
+ div(class="views")
+  //- <!-- Your main view, should have "view-main" class-->
+  div(class="view view-main")
+    //- <!-- Top Navbar-->
+    div(class="navbar")
+      div(class="navbar-inner")
+        //- <!-- We have home navbar without left link-->
+        div(class="center sliding") Awesome App
+        div(class="right")
+          //- <!-- Right link contains only icon - additional "icon-only" class-->
+          a(href="#" class="link icon-only open-panel") 
+           i(class="icon icon-bars")
+    //- <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+    div(class="pages navbar-through toolbar-through")
+      //- <!-- Page, data-page contains page name-->
+      div(data-page="index" class="page")
+        //- <!-- Scrollable page content-->
+        div(class="page-content")
+          div(class="content-block-title") Welcome To My Awesome App
+          div(class="content-block")
+            div(class="content-block-inner")
+              p Couple of worlds here because my app is so awesome!
+              p Duis sed erat ac eros ultrices pharetra id ut tellus. Praesent rhoncus enim ornare ipsum aliquet ultricies. Pellentesque sodales erat quis elementum sagittis.
+          div(class="content-block-title") What about simple navigation?
+          div(class="list-block")
+            ul
+              li
+               a(href="about.html" class="item-link")
+                  div(class="item-content")
+                    div(class="item-inner")
+                      div(class="item-title") About
+              li 
+               a(href="services.html" class="item-link")
+                  div(class="item-content") 
+                    div(class="item-inner")
+                      div(class="item-title") Services
+              li
+               a(href="form.html" class="item-link")
+                  div(class="item-content")
+                    div(class="item-inner")
+                      div(class="item-title") Form
+          div(class="content-block-title") Side panels
+          div(class="content-block")
+            div(class="row")
+              div(class="col-50")
+               a(href="#" data-panel="left" class="button open-panel") Left Panel
+              div(class="col-50")
+               a(href="#" data-panel="right" class="button open-panel") Right Panel
+    //- <!-- Bottom Toolbar-->
+    div(class="toolbar")
+      div(class="toolbar-inner")
+       a(href="#" class="link") Search
+       a(href="#" class="link") Photo
+       a(href="#" class="link") HOME
+       a(href="#" class="link") User Page
+       a(href="#" class="link") Clan Page
+  a(href='/auth' class='btn btn-info') 	Login/Signup Page
+  a(href='/users' class='btn btn-success') 	Users
+  a(href='/users' class='btn btn-warning') 	Clans
+  a(href='/users' class='btn btn-info') 	About

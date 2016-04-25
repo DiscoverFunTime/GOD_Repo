@@ -28,13 +28,14 @@ app.use('/users',routes.users)
 app.use('/photos',routes.photos)
 app.use('/auth',routes.auth)
 app.use('/clans',routes.clans)
+app.use('/about', routes.about)
 
 
 
 
 // ROOT ROUTE
 app.get('/',function(req,res){
-  res.render('auth')
+  res.render('index')
 })
 
 
