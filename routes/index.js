@@ -1,5 +1,6 @@
-const users = require("./user")
-const photos = require("./photo")
-const clans = require("./clan")
+const users = require("./users")
+const photos = require("./photos")
+const clans = require("./clans")
+const auth = require("./auth")
 
-module.exports = {users, photos, clans};
+module.exports = {users, photos, clans, auth};
