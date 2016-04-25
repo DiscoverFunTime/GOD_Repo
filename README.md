@@ -3,7 +3,7 @@
 ####Fork and clone this repo to your github.
 
 -  `$ npm install`: get all dependencies.
--  `$ generate-secreate`: craeate .env file
+-  `$ generate-secret`: craete .env file
 -  `$ nodemon`: listen on port 3000.
 
 We should all be on the same page.  

@@ -1,0 +1,18 @@
+extends ./layout.jade
+
+block content
+  div.container-fluid
+    h3 New User Sign Up
+    form(href="/")
+      label username
+      input(type="text" name="user[username]")
+      br
+      label password
+      input(type="password" name="user[password]")
+      br
+
+      button.btn.btn-primary
+        span.fa.fa-facebook Sign up with facebook
+        
+      button.btn.btn-danger
+        span.fa.fa-google Sign up with google
