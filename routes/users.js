@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const knex = require("../db/knex")
+
 const SALT_WORK_FACTOR = 10;
 const bcrypt = require("bcrypt");
 
@@ -43,7 +44,6 @@ router.post('/',function(req,res){
   });
 })
 
-
 // GET /users/:id/edit
 router.get('/:id/edit',helpers.ensureAuthenticated,function(req,res){
   // show editing setting page (ios UI maybe)
@@ -67,9 +67,6 @@ router.delete('/:id',function(req,res){
     res.redirect('/')
   })
 })
-
-
-
 
 
 module.exports = router;

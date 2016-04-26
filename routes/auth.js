@@ -97,6 +97,7 @@ passport.use(new GoogleStrategy({
 
 
 
+
 // Serialize & Deserialize User
 passport.serializeUser(function(user, done) {
   // set req.session.passport.user = user.id
@@ -117,6 +118,7 @@ passport.deserializeUser(function(id, done) {
 
 // Routes
 router.get('/',function(req,res){
+
   res.redirect("/auth/login")
 });
 
@@ -168,6 +170,7 @@ router.get('/logout',function(req,res){
 
 
 module.exports = router;
+
 
 
 
