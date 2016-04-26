@@ -22,12 +22,18 @@ $(document).ready(() => {
                     var imgURL = URL.createObjectURL(file);
 
                     // Set img src to ObjectURL
-                    $showPicture.attr("src", imgURL);
+                    $showPicture.attr("src", imgURL).attr("data-caman-hidpi", imgURL);
+
+                    // Resize to something small for now
+                    Caman.DEBUG = ('console' in window);
+                    Caman("#show-picture", function () {
+                      this.brightness(25).render();
+                    });
 
                     // Make preview visible
                     $(".preview").css("display", "");
 
-                    // Revoke ObjectURL after imagehas loaded
+                    // Revoke ObjectURL after image has loaded
                     $showPicture.on("load", function() {
                         URL.revokeObjectURL(imgURL);  
                     });

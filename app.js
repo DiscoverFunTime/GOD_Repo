@@ -1,6 +1,8 @@
 require("dotenv").load()
 const express = require("express");
 const app = express();
+const uploadcare = require('uploadcare')('public_key', 'private_key'),
+      fs = require('fs');
 
 // REQUIRE MIDDLEWARE
 const bodyParser = require("body-parser");
@@ -11,8 +13,10 @@ const session = require("cookie-session");
 const knex = require("./db/knex")
 const flash = require("connect-flash")
 const passport = require("passport")
+const multer = require('multer')
 
 // SET UP MIDDLEWARE
+const upload = multer({ dest: 'uploads/'})
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'));

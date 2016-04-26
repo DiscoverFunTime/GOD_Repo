@@ -4,10 +4,12 @@ block content
   script(src="/scripts/newPost.js")
   h1 This is the photo post fake layout page
   p Let's post some photos!
-  div(class="photo-container")
-    input(type="file" id="take-picture" accept="image/*")
-    div(class="preview" style="display:none")
-      p Photo preview:
-      img(src="about:blank" alt="photo preview" id="show-picture")
+  form(action="/photos" method="POST")
+    div(class="photo-container")
+      input(type="file" id="take-picture" accept="image/*")
+      div(class="preview" style="display:none")
+        p Photo preview:
+        img(src="about:blank" alt="photo preview" id="show-picture" data-caman-hidpi-disabled="")
+        input(type="submit" value="Submit Post")
 
 
