@@ -29,20 +29,23 @@ app.use('/users',routes.users)
 app.use('/photos',routes.photos)
 app.use('/auth',routes.auth)
 app.use('/clans',routes.clans)
+app.use('/about', routes.about)
+app.use('/settings', routes.settings)
 
 
 
 
 // ROOT ROUTE
 app.get('/',function(req,res){
-  res.redirect('/users')
+  res.render('index')
+
 })
 
 
-// ERROR
-// app.get('*', function(req, res){
-//   res.render('404')
-// });
+ERROR
+app.get('*', function(req, res){
+  res.render('404')
+});
 
 
 // listen
