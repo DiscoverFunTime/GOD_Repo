@@ -35,7 +35,7 @@ app.use('/clans',routes.clans)
 
 // ROOT ROUTE
 app.get('/',function(req,res){
-  res.redirect('/users')
+  res.render('index')
 })
 
 

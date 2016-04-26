@@ -41,9 +41,9 @@ passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_ID,
     clientSecret: process.env.FACEBOOK_SECRET,
     callbackURL: "http://localhost:3000/auth/facebook/callback",
-    scope:['public_profile','email','user_location']
+    profileFields:['id','picture','email','location']
   },function(accessToken, refreshToken, profile, done) {
-      knex('users').where('fb_id',profile.id).first().then(function(user){
+      knex('users').where('facebookId',profile.id).first().then(function(user){
         // FIND
         if(user){
           return done(null,user);
@@ -51,8 +51,9 @@ passport.use(new FacebookStrategy({
         // OR CREATE
         else{
           knex('users').insert({
-              fb_id:profile.id,
-              username:profile.username,
+              facebookId:profile.id,
+              email:profile._json.emails,
+              profilePicture:profile._json.picture.data.url,
               display_name:profile.displayName,
             }).then(function(user){
               return done(null, user[0]);
@@ -72,7 +73,7 @@ passport.use(new GoogleStrategy({
     callbackURL: "http://localhost:3000/auth/google/callback"
   },function(accessToken, refreshToken, profile, done) {
     // eval(require('locus'))
-      knex('users').where('google_id',profile.id).first().then(function(user){
+      knex('users').where('googleId',profile.id).first().then(function(user){
         // FIND
         if(user){
           return done(null,user);
@@ -80,7 +81,7 @@ passport.use(new GoogleStrategy({
         // OR CREATE
         else{
           knex('users').insert({
-              google_id:profile.id,
+              googleId:profile.id,
               username:profile.username,
               display_name:profile.displayName,
             }).then(function(user){
@@ -132,7 +133,7 @@ router.post('/login',
 );
 
 router.get('/facebook',
-  passport.authenticate('facebook')
+  passport.authenticate('facebook', {scope:['email']})
 );
 
 router.get('/facebook/callback', passport.authenticate('facebook',{
@@ -155,10 +156,6 @@ router.get('/google/callback', passport.authenticate('google',{
     successFlash:true
   })
 );
-
-
-
-
 
 
 router.get('/logout',function(req,res){
