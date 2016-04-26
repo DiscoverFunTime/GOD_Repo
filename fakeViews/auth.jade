@@ -12,10 +12,12 @@ block content
       br
       input(type="submit" value="Login").btn.btn-default
       br
-
+    
+    form(action="/auth/facebook")
       button.btn.btn-primary
         span.fa.fa-facebook facebook login
-        
+    
+    form(action="/auth/google")
       button.btn.btn-danger
         span.fa.fa-google google login
   
@@ -36,12 +38,14 @@ block content
       input(type="submit" value="Sign Up").btn.btn-default
       br
 
+      form(action="/auth/facebook")
+        button.btn.btn-primary
+          span.fa.fa-facebook Sign up with facebook
+      
+      form(action="/auth/google")
+        button.btn.btn-danger
+          span.fa.fa-google Sign up with google
 
-      button.btn.btn-primary
-        span.fa.fa-facebook Sign up with facebook
-        
-      button.btn.btn-danger
-        span.fa.fa-google Sign up with google
       
       p note: display name probably will leave blank. user can set it in profile setting. So keep the signup columns to minimum. 
 

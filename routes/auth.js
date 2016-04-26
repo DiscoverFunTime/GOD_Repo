@@ -6,6 +6,8 @@ const bcrypt = require("bcrypt");
 const passport = require("passport")
 const LocalStrategy = require('passport-local').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+
 
 // LOCAL Strategy
 passport.use(new LocalStrategy({
@@ -13,7 +15,6 @@ passport.use(new LocalStrategy({
   passwordField:'user[password]',
   passReqToCallback:true
 }, function(req,username,password,done){
-  // eval(require('locus'))
   // find username in db
   knex('users').where('username',username).first().then(function(user){
     // cannot find user in db
@@ -34,11 +35,71 @@ passport.use(new LocalStrategy({
   })
 }))
 
+
+// FACEBOOK Strategy
+passport.use(new FacebookStrategy({
+    clientID: process.env.FACEBOOK_ID,
+    clientSecret: process.env.FACEBOOK_SECRET,
+    callbackURL: "http://localhost:3000/auth/facebook/callback",
+    scope:['public_profile','email','user_location']
+  },function(accessToken, refreshToken, profile, done) {
+      knex('users').where('fb_id',profile.id).first().then(function(user){
+        // FIND
+        if(user){
+          return done(null,user);
+        }
+        // OR CREATE
+        else{
+          knex('users').insert({
+              fb_id:profile.id,
+              username:profile.username,
+              display_name:profile.displayName,
+            }).then(function(user){
+              return done(null, user[0]);
+          })
+        }
+      }).catch(function(err){
+        return done(err, null);
+      })
+  }));
+
+
+
+// GOOGLE Strategy
+passport.use(new GoogleStrategy({
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: "http://localhost:3000/auth/google/callback"
+  },function(accessToken, refreshToken, profile, done) {
+    // eval(require('locus'))
+      knex('users').where('google_id',profile.id).first().then(function(user){
+        // FIND
+        if(user){
+          return done(null,user);
+        }
+        // OR CREATE
+        else{
+          knex('users').insert({
+              google_id:profile.id,
+              username:profile.username,
+              display_name:profile.displayName,
+            }).then(function(user){
+              return done(null, user[0]);
+          })
+        }
+      }).catch(function(err){
+        console.log(err)
+        return done(err, null);
+      })
+  }));
+
+
+
+// Serialize & Deserialize User
 passport.serializeUser(function(user, done) {
   // set req.session.passport.user = user.id
   done(null, user.id)
 });
-
 
 passport.deserializeUser(function(id, done) {
   // get user id from serializeUser, look up in db and set 'currentUser'
@@ -52,27 +113,6 @@ passport.deserializeUser(function(id, done) {
 
 
 
-
-// FACEBOOK Strategy
-passport.use(new FacebookStrategy({
-    clientID: process.env.FACEBOOK_ID,
-    clientSecret: process.env.FACEBOOK_SECRET,
-    callbackURL: "http://localhost:3000/auth/facebook/callback"
-  },
-  function(accessToken, refreshToken, profile, cb) {
-    User.findOrCreate({ facebookId: profile.id }, function (err, user) {
-      return cb(err, user);
-    });
-  }
-));
-
-
-
-
-// GOOGLE Strategy
-
-
-
 // Routes
 router.get('/',function(req,res){
   res.redirect("/auth/login")
@@ -83,14 +123,43 @@ router.get('/login',function(req,res){
 });
 
 router.post('/login',
-  // eval(require('locus'))
   passport.authenticate('local',{
     successRedirect:'/users',
-    failureRedirect:'auth/login',
+    failureRedirect:'/auth/login',
     failureFlash:true,
     successFlash:true
   })
 );
+
+router.get('/facebook',
+  passport.authenticate('facebook')
+);
+
+router.get('/facebook/callback', passport.authenticate('facebook',{
+    successRedirect:'/users',
+    failureRedirect:'/auth/login',
+    failureFlash:true,
+    successFlash:true
+  })
+);
+
+
+router.get('/google',
+  passport.authenticate('google',{ scope: ['openid','email'] })
+);
+
+router.get('/google/callback', passport.authenticate('google',{
+    successRedirect:'/users',
+    failureRedirect:'/auth/login',
+    failureFlash:true,
+    successFlash:true
+  })
+);
+
+
+
+
+
 
 router.get('/logout',function(req,res){
   req.logout();
