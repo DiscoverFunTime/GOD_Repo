@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const knex = require("../db/knex")
+const helpers = require("../helpers/authHelpers")
 
+router.use(helpers.ensureAuthenticated)
 
 // GET /clans INDEX: show all exsiting clans
 router.get('/',function(req,res){
@@ -14,7 +16,7 @@ router.get('/:id',function(req,res){
 })
 
 // GET /clans/new NEW form to create new clan - description, name or other setting
-rotuer.get('/new', function(req,res){
+router.get('/new', function(req,res){
  res.render("./clan/new")
 }) 
 

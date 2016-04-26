@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const knex = require("../db/knex");
 const bcrypt = require("bcrypt");
+const helpers = require("../helpers/authHelpers")
 
 const passport = require("passport")
 const LocalStrategy = require('passport-local').Strategy;
@@ -119,7 +120,7 @@ router.get('/',function(req,res){
   res.redirect("/auth/login")
 });
 
-router.get('/login',function(req,res){
+router.get('/login', helpers.preventLoginSignup,function(req,res){
   res.render("auth")
 });
 
