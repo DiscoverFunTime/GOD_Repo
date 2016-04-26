@@ -5,11 +5,7 @@ const knex = require("../db/knex")
 
 
 router.get('/',function(req,res){
-  res.render("photos")
-})
-
-router.get('/',function(req,res){
-  res.render("photos")
+  res.render("about")
 })
 
 

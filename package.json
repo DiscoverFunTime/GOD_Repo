@@ -1,7 +1,7 @@
 {
   "name": "discover_app",
   "version": "1.0.0",
-  "description": "",
+  "description": "####Fork and clone this repo to your github.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,7 +24,19 @@
     "npm": "^3.8.7",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.0",
+    "passport-google-oauth20": "^1.0.0",
     "passport-local": "^1.0.0",
     "pg": "^4.5.3"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RichardCraven/GOD_Repo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RichardCraven/GOD_Repo/issues"
+  },
+  "homepage": "https://github.com/RichardCraven/GOD_Repo#readme"
 }

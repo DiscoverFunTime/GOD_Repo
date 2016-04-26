@@ -3,7 +3,7 @@ gen# Fork and Clone
 ####Fork and clone this repo to your github.
 
 -  `$ npm install`: get all dependencies.
--  `$ generate-secret`: craeate .env file
+-  `$ generate-secret`: create .env file
 -  `$createdb discover_app
 -  `$ nodemon`: listen on port 3000.
 
