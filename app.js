@@ -11,6 +11,8 @@ const session = require("cookie-session");
 const knex = require("./db/knex")
 const flash = require("connect-flash")
 const passport = require("passport")
+const helpers = require("./helpers/authHelpers")
+
 
 // SET UP MIDDLEWARE
 app.use(express.static(__dirname + '/public'));
@@ -32,17 +34,18 @@ app.use('/clans',routes.clans)
 app.use('/about', routes.about)
 app.use('/settings', routes.settings)
 
+// Set 'currentUser' in all routes.
+app.use(helpers.currentUser)
 
 
 
 // ROOT ROUTE
 app.get('/',function(req,res){
   res.render('index')
-
 })
 
 
-ERROR
+// ERROR
 app.get('*', function(req, res){
   res.render('404')
 });
