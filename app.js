@@ -10,7 +10,7 @@ const routes = require("./routes/index")
 const session = require("cookie-session");
 const knex = require("./db/knex")
 const flash = require("connect-flash")
-// const passport = require("passport")
+const passport = require("passport")
 
 // SET UP MIDDLEWARE
 app.use(express.static(__dirname + '/public'));
@@ -18,11 +18,12 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
 app.use(morgan('dev'));
 app.set("view engine", "jade");
+app.set('views', __dirname + '/fakeViews'); // Forces server to load fakeViews; comment out for real views
 
-// app.use(session({secret: process.env.SECRET}));
-// app.use(flash());
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(session({secret: process.env.SECRET}));
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/users',routes.users)
 app.use('/photos',routes.photos)
@@ -37,13 +38,14 @@ app.use('/settings', routes.settings)
 // ROOT ROUTE
 app.get('/',function(req,res){
   res.render('index')
+
 })
 
 
-// ERROR
-// app.get('*', function(req, res){
-//   res.render('404')
-// });
+ERROR
+app.get('*', function(req, res){
+  res.render('404')
+});
 
 
 // listen

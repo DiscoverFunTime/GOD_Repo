@@ -6,3 +6,4 @@ const about = require("./about")
 const settings = require("./settings")
 
 module.exports = {users, photos, clans, auth, about, settings};
+
