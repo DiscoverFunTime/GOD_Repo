@@ -29,6 +29,7 @@ app.use('/photos',routes.photos)
 app.use('/auth',routes.auth)
 app.use('/clans',routes.clans)
 app.use('/about', routes.about)
+app.use('/settings', routes.settings)
 
 
 
