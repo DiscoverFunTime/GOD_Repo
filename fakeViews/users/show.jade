@@ -1,0 +1,14 @@
+extends ../layout.jade
+
+block content
+  h1 user id: #{currentUser.id}
+  h1 user name: #{currentUser.dispaly_name}
+
+  a(href="/users/#{currentUser.id}/edit") 
+    h2 edit profile
+  hr
+  each obj in collection
+    div
+      img(src=obj.url height="auto" width="400")
+      h4= obj.description
+      h5= obj.location

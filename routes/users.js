@@ -7,15 +7,21 @@ const bcrypt = require("bcrypt");
 
 const helpers = require("../helpers/authHelpers")
 
+
 // GET /users Index: ensureLogin
 router.get('/',helpers.ensureAuthenticated,function(req,res){
   res.render("./users/index", {message:req.flash('success')})
 })
 
 
-// GET /users/:id SHOW User Profile page
+// GET /users/:id SHOW User profile page
 router.get('/:id',helpers.ensureAuthenticated,function(req,res){
   // get user data from db: profile, posts, liked post
+    // eval(require('locus'))
+  var u_id=req.params.id;
+  knex('users as u').join('posts as p','u.id', 'p.user_id').where('u.id',u_id).then(function(collection){
+    res.render('./users/show',{collection})
+  })
 })
 
 
@@ -53,9 +59,13 @@ router.get('/:id/edit',helpers.ensureAuthenticated,function(req,res){
 
 // PUT /users/:id UPDATE User Setting
 router.put('/:id',function(req,res){
-  // Find in db & update new info
+  // Find in db & update new info => updateUser
   // Refirect back to profile page
-
+  var u_id = req.params.id;
+  // eval(require('locus'))
+  knex('users').where('id',u_id).update(req.body.updateUser).then(function(){
+    res.redirect(`/users/${u_id}`)
+  })
 })
 
 

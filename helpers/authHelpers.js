@@ -18,6 +18,7 @@ exports.preventLoginSignup = (req,res,next) => {
 }
 // put req.user in EVERY SINGLE view
 exports.currentUser = (req,res,next) =>{
+  // eval(require('locus'))
   if(req.isAuthenticated()){
     // set the current user to be req.user
     res.locals.currentUser = req.user
@@ -25,6 +26,7 @@ exports.currentUser = (req,res,next) =>{
     return next();
   }
   else {
+    res.locals.currentUser={};
     return next();
   }
 }
