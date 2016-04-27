@@ -1,0 +1,20 @@
+body {
+    background-image: url(http://i.imgur.com/aOTYJfh.png);
+    /*background-image: url(http://i.imgur.com/q5oQYwA.png);*/
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.container {
+background-size: cover;
+background-repeat: no-repeat;
+  
+}
+
+#load {
+
+}
+
+#landingComp {
+  /*visibility: hidden;*/
+
+}
