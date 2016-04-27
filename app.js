@@ -1,6 +1,8 @@
 require("dotenv").load()
 const express = require("express");
 const app = express();
+const uploadcare = require('uploadcare')('public_key', 'private_key'),
+      fs = require('fs');
 
 // REQUIRE MIDDLEWARE
 const bodyParser = require("body-parser");
@@ -15,6 +17,7 @@ const helpers = require("./helpers/authHelpers")
 
 
 // SET UP MIDDLEWARE
+const upload = multer({ dest: __dirname + '/public/uploads/'})
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
@@ -37,6 +40,7 @@ app.use('/auth',routes.auth)
 app.use('/clans',routes.clans)
 app.use('/about', routes.about)
 app.use('/settings', routes.settings)
+app.use('/search', routes.search)
 
 
 // ROOT ROUTE
