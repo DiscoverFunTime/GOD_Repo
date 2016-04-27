@@ -13,7 +13,8 @@ const session = require("cookie-session");
 const knex = require("./db/knex")
 const flash = require("connect-flash")
 const passport = require("passport")
-const multer = require('multer')
+const helpers = require("./helpers/authHelpers")
+
 
 // SET UP MIDDLEWARE
 const upload = multer({ dest: __dirname + '/public/uploads/'})
@@ -33,7 +34,11 @@ app.use('/users',routes.users)
 app.use('/photos',routes.photos)
 app.use('/auth',routes.auth)
 app.use('/clans',routes.clans)
+app.use('/about', routes.about)
+app.use('/settings', routes.settings)
 
+// Set 'currentUser' in all routes.
+app.use(helpers.currentUser)
 
 
 
@@ -44,9 +49,9 @@ app.get('/',function(req,res){
 
 
 // ERROR
-// app.get('*', function(req, res){
-//   res.render('404')
-// });
+app.get('*', function(req, res){
+  res.render('404')
+});
 
 
 // listen
