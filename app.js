@@ -35,7 +35,7 @@ app.use(passport.session());
 app.use(helpers.currentUser)
 
 app.use('/users',routes.users)
-app.use('/photos',routes.photos)
+app.use('/posts',routes.posts)
 app.use('/auth',routes.auth)
 app.use('/clans',routes.clans)
 app.use('/about', routes.about)

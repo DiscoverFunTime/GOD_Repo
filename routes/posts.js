@@ -5,10 +5,8 @@ const fs = require('fs');
 const request = require('request');
 
 
-
-
 router.get('/',function(req,res){
-  res.render("photos")
+  res.render("./posts/index")
 })
 
 router.post('/', function(req, res) {
