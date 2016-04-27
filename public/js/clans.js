@@ -1,6 +1,6 @@
 var myApp = new Framework7();
 
-var $$ = Dom7;
+// var $$ = Dom7;
 
 // $$('.open-right-panel').on('click', function (e) {
 // 	e.preventDefault();
