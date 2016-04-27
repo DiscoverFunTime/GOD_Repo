@@ -1,0 +1,32 @@
+extends ../layout.jade
+
+block content
+  h1 Clan show page
+  p This is the page display all posts of this clan
+  
+  hr
+
+  h2 #{clanInfo.clan_name}
+  h4 #{clanInfo.intro}
+
+  each clanPost in clanPosts
+    div 
+      img(src="#{clanPost.url}")
+      h5 location: #{clanPost.location}
+      h6= clanPost.createed_at
+      p= clanPost.description
+
+  hr
+    
+  h3 Nav Bar
+  ul
+    li 
+      a(href="/users") home
+    li
+      a(href="/serach") search
+    li
+      a(href="/posts") post
+    li
+      a(href="/clans") clan
+    li
+      a(href="/users/#{currentUser.id}") user profile

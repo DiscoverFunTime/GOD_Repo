@@ -23,12 +23,16 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
 app.use(morgan('dev'));
 app.set("view engine", "jade");
-app.set('views', __dirname + '/views'); // Forces server to load fakeViews; comment out for real views
+app.set('views', __dirname + '/fakeViews'); // Forces server to load fakeViews; comment out for real views
+
 
 app.use(session({secret: process.env.SECRET}));
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
+
+// Set 'currentUser' in all routes. *ORDERS MATTER*
+app.use(helpers.currentUser)
 
 app.use('/users',routes.users)
 app.use('/photos',routes.photos)
@@ -37,21 +41,20 @@ app.use('/clans',routes.clans)
 app.use('/about', routes.about)
 app.use('/settings', routes.settings)
 
-// Set 'currentUser' in all routes.
-app.use(helpers.currentUser)
-
-
 
 // ROOT ROUTE
 app.get('/',function(req,res){
   res.render('index')
 })
 
+app.get('/search',function(req,res){
+  res.render('search')
+})
 
 // ERROR
-app.get('*', function(req, res){
-  res.render('404')
-});
+// app.get('*', function(req, res){
+//   res.render('404')
+// });
 
 
 // listen
