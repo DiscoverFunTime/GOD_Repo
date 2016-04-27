@@ -6,7 +6,8 @@ module.exports = {
     client: 'pg',
     connection: {
       database: 'boken_app'
-    }
+    },
+      debug: true
   },
 
   staging: {
