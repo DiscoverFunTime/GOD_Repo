@@ -1,0 +1,44 @@
+extends ../layout.jade
+
+block content
+  h1 id: #{currentUser.id}/ username: #{currentUser.display_name}
+  h4 Joined Clans:
+  ul
+  each clan in clanInfo
+    li= clan.clan_name
+
+  //- -------------------------
+  hr
+  h3 Post of #{currentUser.display_name}
+  each obj in collection
+    div
+      img(src=obj.url height="auto" width="400")
+      h4= obj.description
+      h5= obj.location
+
+  //- -------------------------
+  hr
+  h3 Post #{currentUser.display_name} liked
+
+
+  //- -------------------------
+  hr
+  h3 Side Bar
+  ul
+    li 
+      a(href="/users/#{currentUser.id}/edit") edit profile
+
+  //- -------------------------
+  hr
+  h3 Nav Bar 
+  ul
+    li 
+      a(href="/users") home
+    li
+      a(href="/serach") search
+    li
+      a(href="/posts") post
+    li
+      a(href="/clans") clan
+    li
+      a(href="/users/#{currentUser.id}") user profile

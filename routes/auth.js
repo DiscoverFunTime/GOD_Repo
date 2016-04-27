@@ -122,7 +122,7 @@ router.get('/',function(req,res){
   res.redirect("/auth/login")
 });
 
-router.get('/login', helpers.preventLoginSignup,function(req,res){
+router.get('/login' , helpers.preventLoginSignup,function(req,res){
   res.render("auth")
 });
 

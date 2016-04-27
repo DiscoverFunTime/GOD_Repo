@@ -1,0 +1,29 @@
+extends ../layout.jade
+
+block content
+  h1 Edit the clan
+
+  form(action="/clans/#{clan.id}?_method=put" method="POST")
+    label Clan Name
+    input(type="text" value="#{clan.clan_name}" name="updateClan[clan_name]")
+    br
+    label Clan Intro
+    input(type="text" value="#{clan.intro}" name="updateClan[intro]")
+    br 
+    input(type="submit" value="update clan")
+
+  hr 
+  
+  h3 Nav Bar
+  ul
+    li 
+      a(href="/users") home
+    li
+      a(href="/serach") search
+    li
+      a(href="/posts") post
+    li
+      a(href="/clans") clan
+    li
+      a(href="/users/#{currentUser.id}") user profile
+
