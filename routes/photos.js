@@ -29,9 +29,10 @@ router.get('/new',function(req,res){
 })
 
 router.get('/:id', function (req,res){
-  knex.select('*').from('posts').leftJoin('accounts', 'posts.user_id', 'users.id').then(function (userPost){
-    console.log(userPost);
-    res.send(userPost);
+  knex.select('*').from('posts').leftJoin('users', 'posts.user_id', 'users.id').first().then(function (userPost){
+    var objPostParts = {url: userPost.url, user: userPost.username, loc: userPost.location, desc: userPost.description, lat: userPost.lat, long: userPost.long};
+    console.log(objPostParts);
+    res.render('./posts/show', {post: objPostParts});
   });
 
 });

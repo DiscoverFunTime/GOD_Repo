@@ -1,0 +1,11 @@
+extends ../layout.jade
+
+block content
+  //- script(src="/scripts/showPost.js")
+
+  div(class="post-container")
+    img(src="#{post.url}")
+    p #{post.user}
+    p #{post.loc}
+    p #{post.desc}
+    button Like
