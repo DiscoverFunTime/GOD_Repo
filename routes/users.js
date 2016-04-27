@@ -47,8 +47,13 @@ router.post('/',function(req,res){
       username:req.body.user.username,
       email:req.body.user.email,
       password:hash
-    }).then(function(){
-      res.redirect('/users')
+    }).returning('*').first().then(function(user){
+      // eval(require('locus'))
+      req.login(user,function(err){
+        if(!err){
+          res.redirect('/users')
+        }
+      })
     }).catch(function(err){
       console.log(err)
       res.redirect("/auth/login")
