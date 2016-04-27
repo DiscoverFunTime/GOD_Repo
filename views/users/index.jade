@@ -15,19 +15,26 @@ block content
         span Back
     .center.sliding Clan Posts
     .right
-      a(href="/settings" data-panel="right" class='open-panel link icon-only')
+      a(href="#" data-panel="right" class='open-panel link icon-only')
        i.icon.icon-bars
                     //- a(href="/settings").open-panel.link.icon-only 
         
  .pages.navbar-through
   .page(data-page="infinite-scroll")
     .page-content.infinite-scroll(data-distance="50")
-      div(class='content-block-title' style='font-size:2.1em; color: blue') Dogpatch Explorers
+      div(class='content-block-title' style='font-size:2.1em; color: blue') User's Posts
       .list-block.center
         ul
-          -for (i = 1; i <= 80; i++)
+          -for (i = 1; i <= 10; i++)
             li.item-content
               .item-inner
                 div(class='item-title' style='margin:0 auto') 
-                  img(src='http://lorempixel.com/600/600')
+                  img(src='http://lorempixel.com/500/500')
                   //- img(src="http://lorempixel.com/"Math.floor((Math.random() * 200) + 400)}"/"{Math.floor((Math.random() * 200) + 400)})
+ div(class="toolbar toolbar-bottom" style="bottom:64px")
+      div(class="toolbar-inner")
+        a(href="#" class="link") Search
+        a(href="#" class="link") Photo
+        a(href="/" class="link") HOME
+        a(href="/users" class="link") User Page
+        a(href="/clans" class="link") Clan Page
