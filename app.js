@@ -16,7 +16,7 @@ const passport = require("passport")
 const multer = require('multer')
 
 // SET UP MIDDLEWARE
-const upload = multer({ dest: 'uploads/'})
+const upload = multer({ dest: __dirname + '/public/uploads/'})
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'));

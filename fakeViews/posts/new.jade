@@ -5,11 +5,6 @@ block content
   h1 This is the photo post fake layout page
   p Let's post some photos!
   form(action="/photos" method="POST")
-    div(class="photo-container")
-      input(type="file" id="take-picture" accept="image/*")
-      div(class="preview" style="display:none")
-        p Photo preview:
-        img(src="about:blank" alt="photo preview" id="show-picture" data-caman-hidpi-disabled="")
-        input(type="submit" value="Submit Post")
-
-
+    input(type='hidden', role='uploadcare-uploader', data-image-shrink='1080x1080 80%', data-crop='1:1' name="uuid")
+    input(type="text" value="enter your name here" name="name")
+    input(type="submit" value="submit post")

@@ -18,6 +18,13 @@ html(lang='en')
     //- CamanJS
     script(src='http://cdnjs.cloudflare.com/ajax/libs/camanjs/4.0.0/caman.full.min.js')
 
+    //- UploadCare
+    script.
+      UPLOADCARE_PUBLIC_KEY = '169d4b0493c6f366f014';
+      UPLOADCARE_TABS = 'file camera';
+      UPLOADCARE_IMAGES_ONLY = true;
+    script(charset='utf-8', src='https://ucarecdn.com/widget/2.8.2/uploadcare/uploadcare.full.min.js')
+
   body
     block content
 
