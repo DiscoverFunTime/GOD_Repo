@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
 app.use(morgan('dev'));
 app.set("view engine", "jade");
-app.set('views', __dirname + '/views'); // Forces server to load fakeViews; comment out for real views
+app.set('views', __dirname + '/fakeViews'); // Forces server to load fakeViews; comment out for real views
 
 
 app.use(session({secret: process.env.SECRET}));
@@ -44,11 +44,14 @@ app.get('/',function(req,res){
   res.render('index')
 })
 
+app.get('/search',function(req,res){
+  res.render('search')
+})
 
 // ERROR
-app.get('*', function(req, res){
-  res.render('404')
-});
+// app.get('*', function(req, res){
+//   res.render('404')
+// });
 
 
 // listen

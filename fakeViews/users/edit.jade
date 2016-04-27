@@ -20,3 +20,8 @@ block content
     br
 
     input(type="submit" value="update profile")
+
+  hr
+
+  form(action="/users/#{currentUser.id}?_method=delete" method="POST")
+    input(type="submit" value="delete account")

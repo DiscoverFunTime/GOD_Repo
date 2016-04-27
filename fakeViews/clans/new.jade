@@ -1,0 +1,14 @@
+extends ../layout.jade
+
+block content
+  h1 Create a new clan
+
+  form(action="/clans" method="POST")
+    label Clan Name
+    input(type="text" name="clan[clan_name]")
+    br
+    label Intro: what this clan is about?
+    input(type="text" name="clan[intro]")
+    br
+    input(type="submit" value="create clan")
+
