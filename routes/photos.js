@@ -28,6 +28,14 @@ router.get('/new',function(req,res){
   res.render("./posts/new")
 })
 
+router.get('/:id', function (req,res){
+  knex.select('*').from('posts').leftJoin('accounts', 'posts.user_id', 'users.id').then(function (userPost){
+    console.log(userPost);
+    res.send(userPost);
+  });
+
+});
+
 
 
 
