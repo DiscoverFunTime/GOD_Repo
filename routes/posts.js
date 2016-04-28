@@ -67,7 +67,14 @@ router.get('/:id', function (req,res){
                         desc: userPost.description,
                         lat: userPost.lat,
                         long: userPost.long};
-    res.render('./posts/show', {post: objPostParts});
+    knex.select('*').from('post_tag').where('post_id', req.params.id).then(function(postTags) {
+      postTags = postTags.map(function(tag){
+        return tag.tag;
+      });
+      tagsJoined = postTags.join(', ');
+      objPostParts.tags = tagsJoined;
+      res.render('./posts/show', {post: objPostParts});
+    });
   });
 });
 
