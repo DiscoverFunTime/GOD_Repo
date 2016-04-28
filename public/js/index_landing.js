@@ -3,6 +3,5 @@ $(document).ready(function(){
   $('#load').fadeOut(4000, function(){ 
     $('#landing').css('visibility','visible').hide().fadeIn('slow');
   });
-
 });
 

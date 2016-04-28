@@ -1,27 +1,32 @@
-body {
+/*body {
     background-image: url(http://i.imgur.com/aOTYJfh.png);
-    /*background-image: url(http://i.imgur.com/q5oQYwA.png);*/
+    background-image: url(http://i.imgur.com/q5oQYwA.png);
     background-size: cover;
     background-repeat: no-repeat;
-}
+}*/
 .container {
 /*background-size: cover;
 background-repeat: no-repeat;*/
   
 }
 
-#load {
+#load { 
+  padding: 0;
+}
 
-}
+/*mountain background*/
 #loadBack{
- position: fixed;
-    width: 100%;
-    left: 0;
-    top: 0;
- z-index: 1;
+  width: 100%;
 }
+#mountain{
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
 #loadEl{
-  
+
 z-index: 0;
 }
 
