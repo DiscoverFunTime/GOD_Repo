@@ -3,8 +3,13 @@ extends ../layout.jade
 block content
   script(src="/scripts/newPost.js")
   h1 This is the photo post fake layout page
-  p Let's post some photos!
+  p Let's make some posts!
   form(action="/posts" method="POST")
-    input(type='hidden', role='uploadcare-uploader', data-image-shrink='1080x1080 80%', data-crop='1:1' name="uuid")
-    input(type="text" value="enter your name here" name="name")
+    input(type='hidden', role='uploadcare-uploader', data-image-shrink='1080x1080 80%', data-crop='1:1' name="post[url]")
+    label(for='loc') Location name:
+      input(type="text" value="" name="post[location]")
+    label(for='desc') Description:
+      input(type="text" value="" name="post[description]")
+    label(for="tag") Tags:
+      input(type="text" name="tag")
     input(type="submit" value="submit post")
