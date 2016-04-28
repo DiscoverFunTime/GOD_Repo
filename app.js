@@ -25,7 +25,11 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
 app.use(morgan('dev'));
 app.set("view engine", "jade");
-app.set('views', __dirname + '/views'); // Forces server to load fakeViews; comment out for real views
+// app.set('views', __dirname + '/views'); 
+
+// Forces server to load fakeViews; comment out for real views
+app.set('views', __dirname + '/fakeViews'); 
+
 
 
 app.use(session({secret: process.env.SESSION_SECRET}));
@@ -60,9 +64,9 @@ app.get('/web', function(req, res){
 })
 
 // ERROR
-// app.get('*', function(req, res){
-//   res.render('404')
-// });
+app.get('*', function(req, res){
+  res.render('404')
+});
 
 
 // listen
