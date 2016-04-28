@@ -17,10 +17,16 @@ block content
           img#fieldBlankH.BTN(src='/graphics/buttons/userNameBTN.png')
         #pass
           img#fieldBlank.BTN(src='/graphics/buttons/blankFieldBTN.png')
+        
         #loginFB
-          img#fieldFB.BTN(src='/graphics/buttons/loginFbBTN.png')
+          form(action="/auth/facebook")
+            input(type="image" src='/graphics/buttons/loginFbBTN.png' id="fieldFB saveForm" class="BTN submit")
+          
+          
         #loginG
-          img#fieldG.BTN(src='/graphics/buttons/loginGoggleBTN.png')
+          form(action="/auth/google")
+            input(type="image" src='/graphics/buttons/loginGoggleBTN.png' id="fieldG saveForm" class="BTN submit")
+            
 
 
 
