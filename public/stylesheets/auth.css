@@ -35,13 +35,7 @@
 #signUp{
   position: relative;
   z-index: 1;
-  top: 41%;
-}
-
-#userN{
-  position: absolute;
-  z-index: 2;
-
+  top: 39%;
 }
 
 #pass{
@@ -53,13 +47,44 @@
 #loginFB{
   position: absolute;
   z-index: 4;
-  top: 130.1px;
+  top: 158px;
 }
 
 #loginG{
   position: absolute;
   z-index: 5;
-  top: 183px;
+  top: 210px;
 }
 
+.loginOUR{
+  background-color:rgba(255,255,255, 0.3);
+  border: 1px solid rgba(255,255,255, 0.1);
+  border-radius: 9px;
+  width: 286px;
+  height: 42px;
+  margin-right: 10%;
+  margin-left: 11.5%;
+}
+
+#UN{
+  
+  margin-top: 10%
+}
+
+#UP{
+  margin-top: 3%
+
+}
+#LI{
+  margin-top: 3%;
+  margin-left: 31%;
+  
+}
+
+input{
+  text-align:center;
+  font-family: inherit;
+  font-size: 100%;
+  color:#534F9F;
+}
 

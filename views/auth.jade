@@ -14,20 +14,22 @@ block content
         img#mountain(src='http://i.imgur.com/a9wPVK5.png')
       #signUp
         #userN
-          img#fieldBlankH.BTN(src='/graphics/buttons/userNameBTN.png')
+          form(action="/auth/login" method="POST")
+            input#UN.loginOUR(type="text" name="user[username]" placeholder="Username or Email")
+            input#UP.loginOUR(type="password" name="user[password]" placeholder="Password")
+            input#LI(type="submit" value=" LOG IN OR SIGN UP")  
+            //- input(type="image" src='/graphics/buttons/userNameBTN.png' id ="fieldBlankH" class="BTN")
         #pass
-          img#fieldBlank.BTN(src='/graphics/buttons/blankFieldBTN.png')
+          //- img#fieldBlank.BTN(src='/graphics/buttons/blankFieldBTN.png')
         
         #loginFB
           form(action="/auth/facebook")
             input(type="image" src='/graphics/buttons/loginFbBTN.png' id="fieldFB saveForm" class="BTN submit")
           
-          
         #loginG
           form(action="/auth/google")
             input(type="image" src='/graphics/buttons/loginGoggleBTN.png' id="fieldG saveForm" class="BTN submit")
             
-
 
 
   //- div.container-fluid
