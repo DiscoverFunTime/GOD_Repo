@@ -54,6 +54,11 @@ app.get('/search',function(req,res){
   res.render('search')
 })
 
+// route to web intro page
+app.get('/web', function(req, res){
+  res.render('webPage')
+})
+
 // ERROR
 // app.get('*', function(req, res){
 //   res.render('404')
