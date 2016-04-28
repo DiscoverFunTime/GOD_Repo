@@ -1,0 +1,65 @@
+#load { 
+  padding: 0;
+  
+}
+
+#mountain {
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /*position:relative;
+  z-index: 1;*/
+}
+
+/*my load*/
+.container {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+/*Mountain, load back*/
+#loadBack {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/*login buttons*/
+.BTN{
+  width: 100%;
+}
+
+#signUp{
+  position: relative;
+  z-index: 1;
+  top: 41%;
+}
+
+#userN{
+  position: absolute;
+  z-index: 2;
+
+}
+
+#pass{
+  position: absolute;
+  z-index: 3;
+  top: 65px;
+}
+
+#loginFB{
+  position: absolute;
+  z-index: 4;
+  top: 130.1px;
+}
+
+#loginG{
+  position: absolute;
+  z-index: 5;
+  top: 183px;
+}
+
+
