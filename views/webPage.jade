@@ -45,21 +45,22 @@ body#to-top.index
               img.img-logo(src='webPage/images/logo.png', alt='')
 
           //- Title
-          h1 Start your new adventure with bøken
+          h1(style="color:black") EXPLORE THE WORLD ONE IMAGE AT A TIME
           //- Sub title
-          p
+          p(style="color:gray")
             | Discover the hidden gems and secret spots in your city through fellow explorer.
           //- Button
           p.btn-app-store
             a.btn.btn-danger.btn-lg(href='#fakelinks')
-              img(src='webPage/images/btn-app-store.png', alt='')
+              img(src='webPage/images/btn-app-store.png' alt='')
 
         .col-md-5
-          //- Images showcase
+          //- Images showcase "the PHONE"
           figure
-            img.img-iPhone(src='webPage/images/iphone/2.png', alt='')
+            //- img.img-iPhone(src='webPage/images/iphone/2.png', alt='')
 
   section#section-1.services-section
+    h3.text-center HEIGHT LIGHTS
     .container
       .row
         .col-md-4.col-services
@@ -68,11 +69,11 @@ body#to-top.index
             img.img-services(src='webPage/images/icons/flag.png', alt='')
 
           //- Title
-          h4 Flag
+          h4 GeoTag
 
           //- Description
           p
-            | Harum sunt atque quod reprehenderit voluptates dolores nisi quas dolorum ipsa ad consequatur impedit.
+            | Accurately pinpoints the spot where the other user reveal.
 
         .col-md-4.col-services
           //- Icons
@@ -84,7 +85,7 @@ body#to-top.index
 
           //- Description
           p
-            | Quaerat, quisquam, perspiciatis, ipsam eveniet a ducimus repellat rem nobis similique.
+            | Searchable #tag helps users find content of interest
 
         .col-md-4.col-services
           //- Icons
@@ -96,7 +97,7 @@ body#to-top.index
 
           //- Description
           p
-            | Aperiam iure doloremque tempora explicabo praesentium eos dicta laudantium corrupti ipsam.
+            | Travel around the world through other people's eyes
 
   section#section-2.features-section
     .container
@@ -108,10 +109,10 @@ body#to-top.index
 
         .col-md-7.col-features.features-content
           //- Title
-          h3#title-1 First title features
+          h3#title-1 Excusive Content
           //- Description
           p
-            | Omnis, esse quo natus soluta minima facilis ratione dignissimos necessitatibus quod dolorem labore molestiae maxime veritatis laudantium aut odio ullam laboriosam autem!
+            | The best places deserved to be kept secret from public crowd. So only people in a specific clan can see the exact location.
           p
             a.btn.btn-danger(href='#title-2') Learn more
 
@@ -120,12 +121,12 @@ body#to-top.index
 
         .col-md-7.col-features.features-content
           //- Title
-          h3#title-2 Second title features
+          h3#title-2 Hassle Free Login And Sign Up
           //- Description
           p
-            | Omnis, esse quo natus soluta minima facilis ratione dignissimos necessitatibus quod dolorem labore molestiae maxime veritatis laudantium aut odio ullam laboriosam autem!
+            | Using Facebook or Google login or sign up, saving you the trobules and exploring the secret spot right away. 
           p
-            a.btn.btn-danger(href='./sign-in.html') Sign In
+            a.btn.btn-danger(href='./sign-in.html') Login
             a.btn.btn-danger-border(href='./sign-up.html') Sign Up
 
         .col-md-5.col-features.text-center
@@ -141,10 +142,10 @@ body#to-top.index
 
         .col-md-7.col-features.features-content
           //- Title
-          h3#title-3 Third title features
+          h3#title-3 Upload Photos Directly From Your Phone
           //- Description
           p
-            | Omnis, esse quo natus soluta minima facilis ratione dignissimos necessitatibus quod dolorem labore molestiae maxime veritatis laudantium aut odio ullam laboriosam autem!
+            | This sounds silly, since it is a must to have function for all mobile app. But this function took us a lot of effort to do that.  
           //- Button
           p.btn-app-store
             a.btn.btn-danger.btn-lg(href='#fakelinks')
@@ -152,24 +153,33 @@ body#to-top.index
 
 
   section#section-3.subscribe-section
-    .container
+    .container-fluid
       .row
         .col-md-12
           //- Title
-          h2 Subscribe to get delightfully infrequent updates
+          h2 Meet Our Team
           //- Subscribe form
           .row
-            .col-md-6.col-md-offset-3.col-subscribe
-              form.subscribe-form.form-inline(action='./index.html', role='form')
-                //- Input
-                .form-group
-                  label.sr-only(for='exampleInputEmail1') Email address
-                  input#exampleInputEmail1.form-control(type='email', placeholder='Enter email address')
-
-                button.btn.btn-success(type='submit') Subscribe
-              //- /.subscribe-form
-              section.subscribe-description
-                p Don't worry. We do not spam :)
+            .col-md-3
+              div.profile
+                img
+              h4.team Charlie Yang
+              
+            .col-md-3
+              div.profile
+                img
+              h4.team Charlie Yang
+              
+            .col-md-3
+              div.profile
+                img
+              h4.team Charlie Yang
+              
+            .col-md-3
+              div.profile
+                img
+              h4.team Charlie Yang
+              
 
   footer.footer-section(role='contentinfo')
     .container
