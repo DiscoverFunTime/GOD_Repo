@@ -8,10 +8,10 @@ background-repeat: no-repeat;*/
 }
 
 /*mountain background*/
-#loadBack{
+#loadBack {
   width: 100%;
 }
-#mountain{
+#mountain {
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -22,13 +22,17 @@ background-repeat: no-repeat;*/
 /*ellements on the landing page*/
 #landingComp {
   width: 100%;
-  /*visibility: hidden;*/
+  visibility: hidden;
   /*display: flex;
   align-items: center;*/
 }
-#logoLand{
+#logoLand {
   margin-top: 40px;
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.pages.navbar-through {
+visibility: hidden;
 }
