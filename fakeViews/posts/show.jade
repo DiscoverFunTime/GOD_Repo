@@ -1,7 +1,8 @@
 extends ../layout.jade
 
+
 block content
-  //- script(src="/scripts/showPost.js")
+  script(src="/js/showPost.js")
 
   div(class="post-container")
     img(src="#{post.url}")
@@ -10,4 +11,6 @@ block content
     p 
       a(href='http://maps.google.com/maps?q=loc:#{post.lat},#{post.long}') #{post.loc}
     p #{post.desc}
-    button Like
+    p #{post.tags}
+    button(id="btnLike") ♡
+
