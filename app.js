@@ -1,8 +1,10 @@
-require("dotenv").load()
+
 const express = require("express");
 const app = express();
-// const uploadcare = require('uploadcare')('public_key', 'private_key'),
-//       fs = require('fs');
+
+if (app.get('env') === 'development') {
+    require('dotenv').load();
+}
 
 // REQUIRE MIDDLEWARE
 const bodyParser = require("body-parser");
@@ -17,16 +19,17 @@ const helpers = require("./helpers/authHelpers")
 
 
 // SET UP MIDDLEWARE
-// const upload = multer({ dest: __dirname + '/public/uploads/'})
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
 app.use(morgan('dev'));
 app.set("view engine", "jade");
-app.set('views', __dirname + '/views'); // Forces server to load fakeViews; comment out for real views
+// app.set('views', __dirname + '/views'); 
+// Forces server to load fakeViews; comment out for real views
+app.set('views', __dirname + '/fakeViews'); 
 
 
-app.use(session({secret: process.env.SECRET}));
+app.use(session({secret: process.env.SESSION_SECRET}));
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
@@ -35,7 +38,7 @@ app.use(passport.session());
 app.use(helpers.currentUser)
 
 app.use('/users',routes.users)
-app.use('/photos',routes.photos)
+app.use('/posts',routes.posts)
 app.use('/auth',routes.auth)
 app.use('/clans',routes.clans)
 app.use('/about', routes.about)
@@ -52,14 +55,20 @@ app.get('/search',function(req,res){
   res.render('search')
 })
 
+// route to web intro page
+app.get('/web', function(req, res){
+  res.render('webPage')
+})
+
 // ERROR
-// app.get('*', function(req, res){
-//   res.render('404')
-// });
+app.get('*', function(req, res){
+  res.render('./errors/404')
+});
 
 
 // listen
-app.listen(3000, () => {
-  console.log("server starting on port 3000")
+var port = process.env.PORT || 3000;
+app.listen(port, function() {
+    console.log(`Listening on port ${port}`);
 })
 

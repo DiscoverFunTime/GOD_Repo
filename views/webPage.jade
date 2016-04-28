@@ -1,0 +1,235 @@
+doctype html
+
+head
+  //- Meta
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  meta(name='description', content='')
+  meta(name='keywords', content='')
+  meta(name='author', content='')
+  meta(name='googlebot', content='index,follow')
+
+  //- Title
+  title bøken
+  //- Templates core CSS
+  link(href='webPage/stylesheets/application.css', rel='stylesheet')
+  //- Favicons
+  link(href='webPage/images/favicon/favicon.png', rel='shortcut icon')
+  link(href='webPage/images/favicon/apple-touch-icon-57-precomposed.png', rel='apple-touch-icon')
+  link(href='webPage/images/favicon/apple-touch-icon-72-precomposed.png', rel='apple-touch-icon', sizes='72x72')
+  link(href='webPage/images/favicon/apple-touch-icon-144-precomposed.png', rel='apple-touch-icon', sizes='114x114')
+
+  //- Modernizr Scripts
+  script(src='webPage/javascript/vendor/modernizr-2.7.1.min.js')
+body#to-top.index
+  //- Side nav
+  nav.side-nav(role='navigation')
+    ul.nav-side-nav
+      li
+        a.tooltip-side-nav(href='#section-1', title='', data-original-title='Services', data-placement='left')
+      li
+        a.tooltip-side-nav(href='#section-2', title='', data-original-title='Features', data-placement='left')
+      li
+        a.tooltip-side-nav(href='#section-3', title='', data-original-title='Subscribe', data-placement='left')
+      li
+        a.tooltip-side-nav(href='#to-top', title='', data-original-title='Back', data-placement='left')
+
+  //- Jumbotron
+  header.jumbotron(role='banner')
+    .container
+      .row
+        .col-md-7
+          //- Logo
+          figure.text-center
+            a(href='./index.html')
+              img.img-logo(src='webPage/images/logo.png', alt='')
+
+          //- Title
+          h1(style="color:black") EXPLORE THE WORLD ONE IMAGE AT A TIME
+          //- Sub title
+          p(style="color:gray")
+            | Discover the hidden gems and secret spots in your city through fellow explorer.
+          //- Button
+          p.btn-app-store
+            a.btn.btn-danger.btn-lg(href='#fakelinks')
+              img(src='webPage/images/btn-app-store.png' alt='')
+
+        .col-md-5
+          //- Images showcase "the PHONE"
+          figure
+            //- img.img-iPhone(src='webPage/images/iphone/2.png', alt='')
+
+  section#section-1.services-section
+    h3.text-center HEIGHT LIGHTS
+    .container
+      .row
+        .col-md-4.col-services
+          //- Icons
+          figure
+            img.img-services(src='webPage/images/icons/flag.png', alt='')
+
+          //- Title
+          h4 GeoTag
+
+          //- Description
+          p
+            | Accurately pinpoints the spot where the other user reveal.
+
+        .col-md-4.col-services
+          //- Icons
+          figure
+            img.img-services(src='webPage/images/icons/search.png', alt='')
+
+          //- Title
+          h4 Search
+
+          //- Description
+          p
+            | Searchable #tag helps users find content of interest
+
+        .col-md-4.col-services
+          //- Icons
+          figure
+            img.img-services.img-margin(src='webPage/images/icons/world-map.png', alt='')
+
+          //- Title
+          h4 World Map
+
+          //- Description
+          p
+            | Travel around the world through other people's eyes
+
+  section#section-2.features-section
+    .container
+      .row
+        .col-md-5.col-features.text-center
+          //- Images showcase
+          figure
+            img.img-iPhone(src='webPage/images/iphone/1.png', alt='')
+
+        .col-md-7.col-features.features-content
+          //- Title
+          h3#title-1 Excusive Content
+          //- Description
+          p
+            | The best places deserved to be kept secret from public crowd. So only people in a specific clan can see the exact location.
+          p
+            a.btn.btn-danger(href='#title-2') Learn more
+
+
+      .row.media-screen-800
+
+        .col-md-7.col-features.features-content
+          //- Title
+          h3#title-2 Hassle Free Login And Sign Up
+          //- Description
+          p
+            | Using Facebook or Google login or sign up, saving you the trobules and exploring the secret spot right away. 
+          p
+            a.btn.btn-danger(href='./sign-in.html') Login
+            a.btn.btn-danger-border(href='./sign-up.html') Sign Up
+
+        .col-md-5.col-features.text-center
+          //- Images showcase
+          figure
+            img.img-iPhone.margin-top.margin-screen-800(src='webPage/images/iphone/4.png', alt='')
+
+      .row
+        .col-md-5.col-features.text-center
+          //- Images showcase
+          figure
+            img.img-iPhone.margin-top.margin-top-1(src='webPage/images/iphone/3.png', alt='')
+
+        .col-md-7.col-features.features-content
+          //- Title
+          h3#title-3 Upload Photos Directly From Your Phone
+          //- Description
+          p
+            | This sounds silly, since it is a must to have function for all mobile app. But this function took us a lot of effort to do that.  
+          //- Button
+          p.btn-app-store
+            a.btn.btn-danger.btn-lg(href='#fakelinks')
+              img(src='webPage/images/btn-app-store.png', alt='')
+
+
+  section#section-3.subscribe-section
+    .container-fluid
+      .row
+        .col-md-12
+          //- Title
+          h2 Meet Our Team
+          //- Subscribe form
+          .row
+            .col-md-3
+              div.profile
+                img
+              h4.team Charlie Yang
+              
+            .col-md-3
+              div.profile
+                img
+              h4.team Charlie Yang
+              
+            .col-md-3
+              div.profile
+                img
+              h4.team Charlie Yang
+              
+            .col-md-3
+              div.profile
+                img
+              h4.team Charlie Yang
+              
+
+  footer.footer-section(role='contentinfo')
+    .container
+      .row
+        .col-md-4.col-footer
+          //- Footer 1
+          section
+            p
+              | Made with 
+              i.fa.fa-heart
+              |  by Aryandhani.
+          //- AddThis Button
+          ul.addthis_toolbox.addthis_default_style
+            li
+              a.addthis_button_facebook_like
+            li
+              a.addthis_button_tweet
+          //- /.addthis_toolbox
+          script.
+            var addthis_config = {"data_track_addressbar":true};
+          script(src='http://-s7.addthis.com/js/300/addthis_widget.js#pubid=ra-533f6ac03b59c72a')
+        //- /.col-md-4
+        .col-md-4.col-footer.col-padding
+          //- Footer 1
+          section.text-center
+            p
+              | Be sure to read 
+              a(href='#fakelinks') Terms
+              |  and 
+              a(href='#fakelinks') Privacy Policy
+              | .
+          //- Social media links
+          ul.social-media-links
+            li
+              a.fa.fa-twitter.tw(href='#fakelinks')
+            li
+              a.fa.fa-facebook.fb(href='#fakelinks')
+            li
+              a.fa.fa-pinterest.pn(href='#fakelinks')
+
+        .col-md-4.col-footer
+          //- Footer 1
+          section
+            p
+              strong Guri Guri Nyoi, Inc
+              br
+              | Antah berantah Street, Block 123 
+              br
+              | Dimana saja, Kapan saja, 12356.
+
+  script(src='webPage/javascript/vendor/jquery-2.1.0.min.js')
+  script(src='webPage/javascript/bootstrap.min.js')
+  script(src='webPage/javascript/assets/application.js')

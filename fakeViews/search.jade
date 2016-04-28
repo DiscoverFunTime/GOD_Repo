@@ -2,12 +2,20 @@ extends ./layout.jade
 
 block content
   h1 Search Using #tag
-  form(action="")
-    input(type="text" name="search[tag]")
+  form(action="/search" method="POST")
+    input(type="text" name="tag")
     input(type="submit" value="search")
+  hr
+
+  div(style="display:inline-flex").result-container
+    each result in results
+      div(style="margin:10px")
+        a(href="/posts/#{result.p_id}")
+          img(src=result.url style="height:100px; width:100px")
 
 
   hr
+
   
   h3 Nav Bar
   ul
