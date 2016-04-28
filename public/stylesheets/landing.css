@@ -1,13 +1,6 @@
-/*body {
-    background-image: url(http://i.imgur.com/aOTYJfh.png);
-    background-image: url(http://i.imgur.com/q5oQYwA.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-}*/
 .container {
 /*background-size: cover;
-background-repeat: no-repeat;*/
-  
+background-repeat: no-repeat;*/ 
 }
 
 #load { 
@@ -22,15 +15,20 @@ background-repeat: no-repeat;*/
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
-  z-index: 1;
 }
 
-#loadEl{
 
-z-index: 0;
 }
-
+/*ellements on the landing page*/
 #landingComp {
+  width: 100%;
   /*visibility: hidden;*/
-
+  /*display: flex;
+  align-items: center;*/
+}
+#logoLand{
+  margin-top: 40px;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }

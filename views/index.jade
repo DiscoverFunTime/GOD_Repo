@@ -13,11 +13,24 @@ block content
           img#logo.loadEl(src='')
           //- img#txtLogo.loadEl(src='/graphics/logo/bokenText.png')
         #loadBack
-          img#mountain(src='http://i.imgur.com/aOTYJfh.png')
+          img#mountain(src='http://i.imgur.com/rkQJJ0x.png')
       
   #landingComp.container
-        img#logoLand.landEl(src='')
+        img#logoLand.landEl(src='/graphics/logo/bokenText_explore.png')
         img#txtLogo.landEl(src='')
+
+  .pages.navbar-through
+   .page(data-page="infinite-scroll")
+     .page-content.infinite-scroll(data-distance="50")
+       //- div(class='content-block-title' style='font-size:2.1em; color: blue') User's Posts
+       .list-block.center
+         ul
+           -for (i = 1; i <= 10; i++)
+             li.item-content
+               .item-inner
+                 div(class='item-title' style='margin:0 auto') 
+                   img(src='http://lorempixel.com/500/500')           
+
 
 block scripts
   script(type="text/javascript" src="/js/index_landing.js")
