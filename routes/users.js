@@ -30,7 +30,6 @@ router.get('/:id',helpers.ensureAuthenticated,function(req,res){
   })
 })
 
-
 // GET /users/new  New User Route: "render" or "redirect"!??? 
 // because we let login & sign up on the same page
 router.get('/new',helpers.preventLoginSignup,function(req,res){
