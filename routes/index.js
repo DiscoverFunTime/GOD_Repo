@@ -1,5 +1,5 @@
 const users = require("./users")
-const photos = require("./photos")
+const photos = require("./posts")
 const clans = require("./clans")
 const auth = require("./auth")
 const about = require("./about")

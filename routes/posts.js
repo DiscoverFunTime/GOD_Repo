@@ -7,11 +7,7 @@ const request = require('request');
 
 
 router.get('/',function(req,res){
-  knex.select('posts.id as pid','users.id as uid', 'posts.url as url', 'users.display_name as name', 'posts.location as loc').from('posts').leftJoin('users', 'posts.user_id', 'users.id').then(function (userPost){
-    // var objPostParts = {url: userPost.url,
-    //                     uid: userPost.uid,
-    //                     user: userPost.name,
-    //                     loc: userPost.location};
+  knex.select('posts.id as pid','users.id as uid', 'posts.url as url', 'users.display_name as name', 'posts.location as loc').from('posts').leftJoin('users', 'posts.user_id', 'users.id').orderBy('posts.id', 'desc').then(function (userPost){
     console.log(userPost);
     res.render('./posts/index', {posts: userPost});
   });
@@ -21,6 +17,11 @@ router.post('/', function(req, res) {
   console.log(req.body)
   var pattern = /preview/i;
   var imgPath = req.body.post.url;
+  var tags = req.body.tag;
+  var tagList = tags.split(',').map(function(tag) {
+    return tag.trim();
+  });
+  console.log(tagList);
   request(imgPath.replace(pattern, 'json'), function (error, response, body){ // Sends GET request to UploadCare CDN to retrieve EXIF data
     var geo = JSON.parse(body).original.geo_location; // Retrieve geolocation data from the JSON received from the CDN
     newPost = req.body.post;
@@ -30,8 +31,15 @@ router.post('/', function(req, res) {
     console.log(geo);
     knex('posts').insert(newPost)
     .then(function (){
-      res.send('upload ok: ' + 'lat: ' + geo.latitude +' long: ' + geo.longitude);
+      knex('posts').select('id').orderBy('id', 'desc').first().then(function(latestPost){
+        console.log(latestPost)
+        tagList.forEach(function(tag){
+          console.log("ForEachin: " + tag);
+          knex('post_tag').insert({post_id: latestPost.id, tag: tag}).then();    
+        });    
       });
+      res.redirect('/posts');
+    });
   });
 });
 

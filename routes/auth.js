@@ -37,63 +37,63 @@ passport.use(new LocalStrategy({
 }))
 
 
-// // FACEBOOK Strategy
-// passport.use(new FacebookStrategy({
-//     clientID: process.env.FACEBOOK_ID,
-//     clientSecret: process.env.FACEBOOK_SECRET,
-//     callbackURL: "http://localhost:3000/auth/facebook/callback",
-//     profileFields:['id','picture','email','location']
-//   },function(accessToken, refreshToken, profile, done) {
-//       knex('users').where('facebookId',profile.id).first().then(function(user){
-//         // FIND
-//         if(user){
-//           return done(null,user);
-//         }
-//         // OR CREATE
-//         else{
-//           knex('users').insert({
-//               facebookId:profile.id,
-//               email:profile._json.emails,
-//               profilePicture:profile._json.picture.data.url,
-//               display_name:profile.displayName,
-//             }).then(function(user){
-//               return done(null, user[0]);
-//           })
-//         }
-//       }).catch(function(err){
-//         return done(err, null);
-//       })
-//   }));
+// FACEBOOK Strategy
+passport.use(new FacebookStrategy({
+    clientID: process.env.FACEBOOK_ID,
+    clientSecret: process.env.FACEBOOK_SECRET,
+    callbackURL: "http://localhost:3000/auth/facebook/callback",
+    profileFields:['id','picture','email','location']
+  },function(accessToken, refreshToken, profile, done) {
+      knex('users').where('facebookId',profile.id).first().then(function(user){
+        // FIND
+        if(user){
+          return done(null,user);
+        }
+        // OR CREATE
+        else{
+          knex('users').insert({
+              facebookId:profile.id,
+              email:profile._json.emails,
+              profilePicture:profile._json.picture.data.url,
+              display_name:profile.displayName,
+            }).then(function(user){
+              return done(null, user[0]);
+          })
+        }
+      }).catch(function(err){
+        return done(err, null);
+      })
+  }));
 
 
 
-// // GOOGLE Strategy
-// passport.use(new GoogleStrategy({
-//     clientID: process.env.GOOGLE_CLIENT_ID,
-//     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-//     callbackURL: "http://localhost:3000/auth/google/callback"
-//   },function(accessToken, refreshToken, profile, done) {
-//     // eval(require('locus'))
-//       knex('users').where('googleId',profile.id).first().then(function(user){
-//         // FIND
-//         if(user){
-//           return done(null,user);
-//         }
-//         // OR CREATE
-//         else{
-//           knex('users').insert({
-//               googleId:profile.id,
-//               username:profile.username,
-//               display_name:profile.displayName,
-//             }).then(function(user){
-//               return done(null, user[0]);
-//           })
-//         }
-//       }).catch(function(err){
-//         console.log(err)
-//         return done(err, null);
-//       })
-//   }));
+// GOOGLE Strategy
+passport.use(new GoogleStrategy({
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: "http://localhost:3000/auth/google/callback"
+  },function(accessToken, refreshToken, profile, done) {
+    // eval(require('locus'))
+      knex('users').where('googleId',profile.id).first().then(function(user){
+        // FIND
+        if(user){
+          return done(null,user);
+        }
+        // OR CREATE
+        else{
+          knex('users').insert({
+              googleId:profile.id,
+              username:profile.username,
+              display_name:profile.displayName,
+            }).then(function(user){
+              return done(null, user[0]);
+          })
+        }
+      }).catch(function(err){
+        console.log(err)
+        return done(err, null);
+      })
+  }));
 
 
 
