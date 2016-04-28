@@ -5,7 +5,9 @@ block content
 
   div(class="post-container")
     img(src="#{post.url}")
-    p #{post.user}
-    p #{post.loc}
+    p
+      a(href='/users/#{post.uid}') #{post.user}
+    p 
+      a(href='http://maps.google.com/maps?q=loc:#{post.lat},#{post.long}') #{post.loc}
     p #{post.desc}
     button Like

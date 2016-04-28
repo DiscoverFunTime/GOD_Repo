@@ -1,0 +1,14 @@
+extends ../layout.jade
+
+block content
+  //- script(src="/scripts/indexPost.js")
+
+  each post in posts
+    div(class="post-container" id="post-#{post.pid}")
+      a(href="/photos/#{post.pid}")
+        img(src="#{post.url}")
+      br
+      a(href='/users/#{post.uid}') #{post.name}
+      |  - #{post.loc}
+      br
+      br

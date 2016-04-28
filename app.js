@@ -49,7 +49,7 @@ app.get('/',function(req,res){
 
 // ERROR
 app.get('*', function(req, res){
-  res.render('404')
+  res.render('./errors/404')
 });
 
 
