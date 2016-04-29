@@ -22,9 +22,13 @@ router.post('/', function(req, res) {
   request(imgPath.replace(pattern, 'json'), function (error, response, body){ // Sends GET request to UploadCare CDN to retrieve EXIF data
     var geo = JSON.parse(body).original.geo_location; // Retrieve geolocation data from the JSON received from the CDN
     newPost = req.body.post;
-    newPost.lat = geo.latitude;
-    newPost.long = geo.longitude;
-    newPost.user_id = req.users.id;
+
+    newPost.lat = geo.latitude || 123
+    newPost.long = geo.longitude || 123
+    newPost.user_id = 1;
+    console.log(geo);
+
+
     knex('posts').insert(newPost)
     .then(function (){
       knex('posts').select('id').orderBy('id', 'desc').first().then(function(latestPost){

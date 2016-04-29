@@ -29,7 +29,9 @@ router.get('/:id',function(req,res){
 
   // Join two tables to get posts of the clan
 
+
   knex('clans as c').select('c.id as c_id','uc.user_id as u_id','p.id as p_id','p.url','p.description','p.location','p.lat','p.long','p.created_at','u.display_name')
+
   .join('user_clan as uc','c.id','uc.clan_id')
   .join('posts as p','p.user_id','uc.user_id')
   .join('users as u','u.id','p.user_id')
