@@ -75,6 +75,7 @@ router.put('/:id',function(req,res){
   // Find in db & update new info => updateUser
   // Refirect back to profile page
   var u_id = req.params.id;
+  var pictureUrl = req.user.profilePicture;
 
   // If user change password, hash and update.
   if(req.body.updateUser.password){
@@ -87,9 +88,13 @@ router.put('/:id',function(req,res){
     })
   }
 
+  if(req.body.updateUser.url){
+    pictureUrl=req.body.updateUser.url
+  }
+
   // UPDATE user info
   knex('users').where('id',u_id).update({
-    profilePicture:req.body.updateUser.url,
+    profilePicture:pictureUrl,
     display_name:req.body.updateUser.display_name,
     email:req.body.updateUser.email,
   }).then(function(){
