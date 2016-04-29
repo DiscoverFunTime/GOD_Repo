@@ -1,0 +1,54 @@
+
+extends ../clans/clanLayout.jade
+
+block content
+ div.views
+  div(class='views view-main') 
+     div(class="panel-overlay")
+     div(class="panel panel-right panel-cover" style='background-color:#D7D0FF; opacity:0.7; width:70%; height:100%')
+        div(class="content-block" style='margin: 130px 0; ')
+          ul(style='list-style-type:none; margin:0 auto; font-size:1em ')
+           li(style='color:black;') 
+            Span Poop
+             br
+             br
+             br
+             form(action="/clans" method="POST" style='color:black')
+               label ...
+               br
+               input(type="text" name="")
+               br
+               label ///
+               br
+               input(type="text" name="")
+               br
+               input(type="submit" value="")
+           br
+           br 
+
+     .navbar
+      .navbar-inner
+        .left.sliding
+        .center.sliding Clan Index
+        .right
+          a(href="#" data-panel="right" class='open-panel link icon-only')
+           i.icon.icon-bars
+   
+     .page-content(style='padding-top: 180px')
+      //- div(class='content-block-title' style='font-size:2.1em; color: blue') Dogpatch Explorers
+      h3(style='text-align:center; color:crimson') Post a pic of your bøken!
+      div(style='text-align:center')
+      form.text-center(action="/posts" method="POST")
+        input(type='hidden', role='uploadcare-uploader', data-image-shrink='1080x1080 80%', data-crop='1:1' name="post[url]")
+        br
+        br
+        input(type="text" placeholder="location" name="post[location]")
+        br
+        br
+        br
+        input(type="text" placeholder="description" name="post[description]")
+        br
+        br
+        input(type="text" placeholder="tag" name="tag")
+        input.btn-info.btn.btn-sm(type="submit" style='width:30%' value="submit")
+    

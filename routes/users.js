@@ -86,7 +86,7 @@ router.put('/:id',function(req,res){
 
   // UPDATE user info
   knex('users').where('id',u_id).update({
-    profilePicture:req.body.updateUser.profilePicture,
+    profilePicture:req.body.updateUser.url,
     display_name:req.body.updateUser.display_name,
     email:req.body.updateUser.email,
   }).then(function(){

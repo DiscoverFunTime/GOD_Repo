@@ -1,11 +1,5 @@
 
-extends ../layout.jade
-
-
-block scripts
- //- script(type="text/javascript" src="js/clans.js")
-
-
+extends ../clans/clanLayout.jade
 
 block content
  div(class="panel-overlay")
@@ -14,32 +8,45 @@ block content
       p content goes here ...
       p more content
       a(href="#" data-panel="right" class="close-panel") Close me
+ 
  .navbar
   .navbar-inner
     .left.sliding
       a(href="/").back.link
         i.icon.icon-back
         span Back
-    .center.sliding Search this stuff
+    .center.sliding Search stuff
     .right
       a(href="#" data-panel="right" class='open-panel link icon-only')
        i.icon.icon-bars
-                    //- a(href="/settings").open-panel.link.icon-only 
+                    //- a(href="/settings").open-panel.link.icon-only
         
  .pages.navbar-through
   .page(data-page="infinite-scroll")
-    form(class="searchbar")
+    form(class="searchbar" action="/search" method="POST" style="top:8%")
      div(class="searchbar-input")
-       input(type="search" placeholder="")
+       input(type="search" name="tag" placeholder="search all tag")
+
       //- a(href="#" class="searchbar-clear")
       //- a href="#" class="searchbar-cancel">Cancel</a>
     div(class="searchbar-overlay")
     .page-content
+      div(style="display:inline-flex; flex-wrap:wrap")
+        each result in results
+          div(style="margin:10px")
+            a(href="/posts/#{result.p_id}")
+              img(src=result.url style="height:100px; width:100px")
 
- div(class="toolbar toolbar-bottom" style="bottom:64px; opacity:0.7")
-    div(class="toolbar-inner")
-      a(href="/search" class="link") Search
-      a(href="#" class="link") Photo
-      a(href="/" class="link") HOME
-      a(href="/users" class="link") User Page
-      a(href="/clans" class="link") Clan Page
+ .toolbar.toolbar-bottom(style="opacity:0.7")
+   .toolbar-inner
+     a(href="/search" class="link external" style='font-size:0.5 em')
+      i(class="fa fa-2x fa-search" aria-hidden="true")
+     a(href="/posts" class="link external")
+      i(class="fa fa-2x fa-camera" aria-hidden="true")
+     a(href="/users" class="link external") 
+      i(class="fa fa-3x fa-home" aria-hidden="true")
+     a(href="/users/#{currentUser.id}" class="link external")
+      i(class="fa fa-2x fa-user" aria-hidden="true")
+     a(href="/clans" class="link external")
+      i(class="fa fa-2x fa-users" aria-hidden="true")
+

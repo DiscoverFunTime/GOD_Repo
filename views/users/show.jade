@@ -1,0 +1,89 @@
+extends ../clans/clanLayout.jade
+
+block scripts
+
+block content
+  div.views
+   div(class='views view-main')
+    div(class="panel-overlay")
+    div(class="panel panel-right panel-cover" style='background-color:#D7D0FF; opacity:0.7; width:60%; height:100%')
+        div(class="content-block" style='margin: 130px 0; ')
+          ul(style='list-style-type:none; margin:0 auto; font-size:1em ')
+           li(style='color:black;') 
+            Span Edit User
+            form(action="/users/#{currentUser.id}?_method=put" method="POST")
+              img(src="#{currentUser.profilePicture}")
+              br
+              label profile picture
+              input(type='hidden', role='uploadcare-uploader', data-image-shrink='320x320 80%', data-crop='1:1' name="updateUser[url]")
+              br
+              label display name
+              input(type="text" value="#{currentUser.display_name}" name="updateUser[display_name]")
+              br
+              label email
+              input(type="text" value="#{currentUser.email}" name="updateUser[email]")
+              br
+              label new password
+              input(type="password" name="updateUser[password]")
+              br
+
+              input(type="submit" value="update profile")
+
+            hr
+
+            form(action="/users/#{currentUser.id}?_method=delete" method="POST")
+              input(type="submit" value="delete account")
+
+                     
+    .navbar
+      .navbar-inner
+        .left.sliding
+          a(href="/clans" class='external').back.link
+            i.icon.icon-back
+            span Back
+        .center.sliding 
+        .right
+          a(href="#" data-panel="right" class='open-panel link icon-only')
+           i.icon.icon-bars   
+    .page-content(style='padding-top: 75px') 
+      img(src='#{currentUser.profilePicture}')        
+      h1 #{currentUser.display_name}
+      br
+      h5 #{currentUser.email}
+      h6 id: #{currentUser.id} 
+      h4 Joined Clans:
+      ul(style='list-style-type:none')
+       each clan in clanInfo
+        li= clan.clan_name
+      hr
+      h3 Post of #{currentUser.display_name}
+      each obj in collection
+        div
+          img(src=obj.url height="auto" width="400")
+          h4= obj.description
+          h5= obj.location
+
+      //- -------------------------
+      hr
+      h3 Post #{currentUser.display_name} liked
+
+
+      //- -------------------------
+      hr
+        
+    .toolbar.toolbar-bottom(style="opacity:0.7")
+      .toolbar-inner
+        a(href="/search" class="link external" style='font-size:0.5 em')
+         i(class="fa fa-2x fa-search" aria-hidden="true")
+        a(href="/posts" class="link external")
+         i(class="fa fa-2x fa-camera" aria-hidden="true")
+        a(href="/users" class="link external") 
+         i(class="fa fa-3x fa-home" aria-hidden="true")
+        a(href="/users/#{currentUser.id}" class="link external")
+         i(class="fa fa-2x fa-user" aria-hidden="true")
+        a(href="/clans" class="link external")
+         i(class="fa fa-2x fa-users" aria-hidden="true")
+  //- h3 Side Bar
+  //- ul
+  //-   li 
+  //-     a(href="/users/#{currentUser.id}/edit") edit profile

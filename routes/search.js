@@ -19,7 +19,8 @@ router.post('/', function(req,res){
   .join('posts as p', 'p.id','pt.post_id')
   .where('pt.tag',keyword).then(function(results){
   // eval(require('locus'))
-    res.render('./search',{results});
+
+    res.render('./search',{results, tag:"search result for "+req.body.tag});
   })
 })
 

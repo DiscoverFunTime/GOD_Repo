@@ -1,40 +1,84 @@
+extends ./userLayout.jade
 
-extends ../layout.jade
+
+block scripts
+
 
 block content
- div(class="panel-overlay")
-  div(class="panel panel-right panel-cover")
-   div(class="content-block")
-      p content goes here ...
-      p more content
- .navbar
-  .navbar-inner
-    .left.sliding
-      a(href="/").back.link
-        i.icon.icon-back
-        span Back
-    .center.sliding Clan Posts
-    .right
-      a(href="#" data-panel="right" class='open-panel link icon-only')
-       i.icon.icon-bars
-                    //- a(href="/settings").open-panel.link.icon-only 
-        
- .pages.navbar-through
-  .page(data-page="infinite-scroll")
-    .page-content.infinite-scroll(data-distance="50")
-      div(class='content-block-title' style='font-size:2.1em; color: blue') User's Posts
-      .list-block.center
-        ul
-          -for (i = 1; i <= 10; i++)
-            li.item-content
-              .item-inner
-                div(class='item-title' style='margin:0 auto') 
-                  img(src='http://lorempixel.com/500/500')
-                  //- img(src="http://lorempixel.com/"Math.floor((Math.random() * 200) + 400)}"/"{Math.floor((Math.random() * 200) + 400)})
- div(class="toolbar toolbar-bottom" style="bottom:64px")
-      div(class="toolbar-inner")
-        a(href="/search" class="link") Search
-        a(href="#" class="link") Photo
-        a(href="/" class="link") HOME
-        a(href="/users" class="link") User Page
-        a(href="/clans" class="link") Clan Page
+ div.views
+  div(class='views view-main') 
+     div(class="panel-overlay")
+     div(class="panel panel-right panel-cover" style='background-color:#D7D0FF; opacity:0.7; width:60%; height:100%')
+        div(class="content-block" style='margin: 130px 0; ')
+          ul(style='list-style-type:none; margin:0 auto; font-size:1em ')
+           li(style='color:black;') 
+            Span Edit User
+             br
+             br
+             br
+             form(action="/clans" method="POST" style='color:black')
+               label User Name
+               br
+               input(type="text" name="clan[clan_name]" value='username')
+               br
+               label Favorite Cake
+               br
+               input(type="text" name="clan[intro]")
+               br
+               input(type="submit" value="create clan")
+           br
+           br 
+           //- li
+           //-   a(href="#" style='color:black') list clan members (newpage?)
+     .navbar
+      .navbar-inner
+        .left.sliding
+        .center.sliding #{currentUser.display_name}
+        .right
+          a(href="#" data-panel="right" class='open-panel link icon-only')
+           i.icon.icon-bars
+                        //- a(href="/settings").open-panel.link.icon-only 
+            
+     .pages.navbar-through
+      .page(style='opacity:1')
+        .page-content
+          //- div(class='content-block-title' style='font-size:2.1em; color: blue') Dogpatch Explorers
+          //- h3(style='text-align:center; color:crimson') Display top 10 clans
+          //- ul(style='list-style-type:none')
+          //-  each clan in clans
+          //-   li
+          //-    h4
+          //-      a(href="/clans/#{clan.id}" class="link external")= clan.clan_name
+          //-    p= clan.intro
+          //-    form(action="/clans/#{clan.id}/user" method="POST")
+          //-      input(type="submit" value="join this clan")
+
+
+
+          //- h1(style='text-align:center') Feeds:
+            //- h1 This is the FAKE Clan index page
+            //- p It shows top 10 clans with hightest scores
+            //- hr
+          .list-block.center
+            ul
+              -for (i = 1; i <= 10; i++)
+                li.item-content
+                  .item-inner
+                    div(class='item-title' style='margin:0 auto') 
+                      img(src='http://lorempixel.com/600/600')
+                      //- img(src="http://lorempixel.com/"Math.floor((Math.random() * 200) + 400)}"/"{Math.floor((Math.random() * 200) + 400)})
+
+     .toolbar.toolbar-bottom(style="opacity:0.7")
+       .toolbar-inner
+          a(href="/search" class="link external" style='font-size:0.5 em')
+           i(class="fa fa-2x fa-search" aria-hidden="true")
+          a(href="/posts" class="link external")
+           i(class="fa fa-2x fa-camera" aria-hidden="true")
+          a(href="/users" class="link external") 
+           i(class="fa fa-3x fa-home" aria-hidden="true")
+          a(href="/users/#{currentUser.id}" class="link external")
+           i(class="fa fa-2x fa-user" aria-hidden="true")
+          a(href="/clans" class="link external")
+           i(class="fa fa-2x fa-users" aria-hidden="true")
+
+
