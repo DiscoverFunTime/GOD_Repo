@@ -67,3 +67,18 @@ block content
                     div(class='item-title' style='margin:0 auto') 
                       img(src='http://lorempixel.com/600/600')
                       //- img(src="http://lorempixel.com/"Math.floor((Math.random() * 200) + 400)}"/"{Math.floor((Math.random() * 200) + 400)})
+
+     .toolbar.toolbar-bottom(style="opacity:0.7")
+       .toolbar-inner
+          a(href="/search" class="link external" style='font-size:0.5 em')
+           i(class="fa fa-2x fa-search" aria-hidden="true")
+          a(href="/posts" class="link external")
+           i(class="fa fa-2x fa-camera" aria-hidden="true")
+          a(href="/users" class="link external") 
+           i(class="fa fa-3x fa-home" aria-hidden="true")
+          a(href="/users/#{currentUser.id}" class="link external")
+           i(class="fa fa-2x fa-user" aria-hidden="true")
+          a(href="/clans" class="link external")
+           i(class="fa fa-2x fa-users" aria-hidden="true")
+
+

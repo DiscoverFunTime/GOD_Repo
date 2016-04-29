@@ -1,12 +1,6 @@
 
 extends ../clans/clanLayout.jade
 
-
-block scripts
- //- script(type="text/javascript" src="js/clans.js")
-
-
-
 block content
  div(class="panel-overlay")
  div(class="panel panel-right panel-cover")
@@ -14,6 +8,7 @@ block content
       p content goes here ...
       p more content
       a(href="#" data-panel="right" class="close-panel") Close me
+ 
  .navbar
   .navbar-inner
     .left.sliding
@@ -28,7 +23,7 @@ block content
         
  .pages.navbar-through
   .page(data-page="infinite-scroll")
-    form(class="searchbar" action="/search" method="POST")
+    form(class="searchbar" action="/search" method="POST" style="top:8%")
      div(class="searchbar-input")
        input(type="search" name="tag" placeholder="search all tag")
 
@@ -41,3 +36,17 @@ block content
           div(style="margin:10px")
             a(href="/posts/#{result.p_id}")
               img(src=result.url style="height:100px; width:100px")
+
+ .toolbar.toolbar-bottom(style="opacity:0.7")
+   .toolbar-inner
+     a(href="/search" class="link external" style='font-size:0.5 em')
+      i(class="fa fa-2x fa-search" aria-hidden="true")
+     a(href="/posts" class="link external")
+      i(class="fa fa-2x fa-camera" aria-hidden="true")
+     a(href="/users" class="link external") 
+      i(class="fa fa-3x fa-home" aria-hidden="true")
+     a(href="/users/#{currentUser.id}" class="link external")
+      i(class="fa fa-2x fa-user" aria-hidden="true")
+     a(href="/clans" class="link external")
+      i(class="fa fa-2x fa-users" aria-hidden="true")
+
