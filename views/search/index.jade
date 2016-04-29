@@ -20,7 +20,7 @@ block content
       a(href="/").back.link
         i.icon.icon-back
         span Back
-    .center.sliding Search this stuff
+    .center.sliding Search stuff
     .right
       a(href="#" data-panel="right" class='open-panel link icon-only')
        i.icon.icon-bars
@@ -31,6 +31,7 @@ block content
     form(class="searchbar" action="/search" method="POST")
      div(class="searchbar-input")
        input(type="search" name="tag" placeholder="search all tag")
+
       //- a(href="#" class="searchbar-clear")
       //- a href="#" class="searchbar-cancel">Cancel</a>
     div(class="searchbar-overlay")
@@ -40,11 +41,3 @@ block content
           div(style="margin:10px")
             a(href="/posts/#{result.p_id}")
               img(src=result.url style="height:100px; width:100px")
-
- div(class="toolbar toolbar-bottom" style="bottom:64px; opacity:0.7")
-    div(class="toolbar-inner")
-      a(href="/search" class="link") Search
-      a(href="#" class="link") Photo
-      a(href="/" class="link") HOME
-      a(href="/users" class="link") User Page
-      a(href="/clans" class="link") Clan Page
