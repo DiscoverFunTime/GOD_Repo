@@ -1,0 +1,81 @@
+extends ./layout.jade
+
+block navbar
+
+block style
+  link(rel="stylesheet", href="/stylesheets/auth.css")
+
+
+block content
+ 
+ #load.container
+       //- mountain background
+      #loadBack
+        img#mountain(src='http://i.imgur.com/a9wPVK5.png')
+      #signUp
+        #userN
+          form(action="/auth/login" method="POST")
+            input#UN.loginOUR(type="text" name="user[username]" placeholder="Username or Email")
+            input#UP.loginOUR(type="password" name="user[password]" placeholder="Password")
+            input#LI(type="submit" value=" LOG IN OR SIGN UP")  
+            //- input(type="image" src='/graphics/buttons/userNameBTN.png' id ="fieldBlankH" class="BTN")
+        #pass
+          //- img#fieldBlank.BTN(src='/graphics/buttons/blankFieldBTN.png')
+        
+        #loginFB
+          form(action="/auth/facebook")
+            input(type="image" src='/graphics/buttons/loginFbBTN.png' id="fieldFB saveForm" class="BTN submit")
+          
+        #loginG
+          form(action="/auth/google")
+            input(type="image" src='/graphics/buttons/loginGoggleBTN.png' id="fieldG saveForm" class="BTN submit")
+            
+
+
+  //- div.container-fluid
+  //-   h3 Existing User Login
+  //-   form(action="/auth/login" method="POST")
+  //-     label username or email
+  //-     input(type="text" name="user[username]")
+  //-     br
+  //-     label password
+  //-     input(type="password" name="user[password]")
+  //-     br
+  //-     input(type="submit" value="Login").btn.btn-default
+  //-     br
+    
+  //-   form(action="/auth/facebook")
+  //-     button.btn.btn-primary
+  //-       span.fa.fa-facebook facebook login
+    
+  //-   form(action="/auth/google")
+  //-     button.btn.btn-danger
+  //-       span.fa.fa-google google login
+  
+  //- hr
+
+  //- div.container-fluid
+  //-   h3 New User Sign Up
+  //-   form(action="/users" method="POST")
+  //-     label username (unique)
+  //-     input(type="text" name="user[username]")
+  //-     br
+  //-     label email
+  //-     input(type="email" name="user[email]")
+  //-     br
+  //-     label password
+  //-     input(type="password" name="user[password]")
+  //-     br
+  //-     input(type="submit" value="Sign Up").btn.btn-default
+  //-     br
+
+  //-     form(action="/auth/facebook")
+  //-       button.btn.btn-primary
+  //-         span.fa.fa-facebook Sign up with facebook
+      
+  //-     form(action="/auth/google")
+  //-       button.btn.btn-danger
+  //-         span.fa.fa-google Sign up with google
+
+      
+      

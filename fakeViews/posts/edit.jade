@@ -1,0 +1,16 @@
+extends ../layout.jade
+
+block content
+    div(class="post-container")
+    img(src="#{post.url}")
+    p
+      a(href='/users/#{post.uid}') #{post.user}
+    form(action="/posts?_method=PUT" method="POST") 
+      label(for="loc") Location:
+        input(type="text" value="#{post.loc}" name="post[location]")
+      label(for="desc") Description:
+        input(type="text" value="#{post.desc}" name="post[description]")
+      label(for="tag") Tags:
+        input(type="text" value="#{post.tags}" name="tag")
+        input(type="hidden" value="#{post.id}" name="id")
+      input(type="submit" value="Submit Edits")

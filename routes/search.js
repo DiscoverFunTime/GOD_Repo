@@ -5,9 +5,22 @@ const helpers = require("../helpers/authHelpers")
 
 router.use(helpers.ensureAuthenticated)
 
-
+// ROUTE
 router.get('/',function(req,res){
-  res.render("./search/index")
+  var results ={};
+  res.render("./search",{results})
+})
+
+// POST /search SEND search request - send back data
+router.post('/', function(req,res){
+  var keyword = req.body.tag.toLowerCase();
+
+  knex('post_tag as pt').select('pt.tag','p.id as p_id','p.url')
+  .join('posts as p', 'p.id','pt.post_id')
+  .where('pt.tag',keyword).then(function(results){
+  // eval(require('locus'))
+    res.render('./search',{results});
+  })
 })
 
 module.exports = router;

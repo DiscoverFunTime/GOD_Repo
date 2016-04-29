@@ -25,8 +25,18 @@ html(lang='en')
 
 
     link(rel="stylesheet" href="/stylesheets/styles.css")
+    block style
+  body(style="background-image: url('http://i.imgur.com/q5oQYwA.png');background-size:cover")
+    block navbar
 
-  body(style="background-image:url('http://i.imgur.com/aOTYJfh.png');background-size:cover")
+        div(class="toolbar toolbar-bottom" style="bottom:0px; opacity:0.7")
+          div(class="toolbar-inner")
+            a(href="/search" class="link external") Search
+            a(href="/posts" class="link external") Post
+            a(href="/users" class="link external") HOME
+            a(href="/users/#{currentUser.id}" class="link external") User Page
+            a(href="/clans" class="link external") Clan Page
+        
 
     block content
 
@@ -39,12 +49,10 @@ html(lang='en')
         a(href="/clans" class="link external") Clan Page
 
 
-    script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js")
-    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous")
 
-    //- FRAMEWORK7 Script
     
     script(type="text/javascript" src="js/framework7.min.js")
+
     
 
     block scripts
