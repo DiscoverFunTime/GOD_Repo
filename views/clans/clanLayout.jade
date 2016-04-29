@@ -17,11 +17,19 @@ html(lang='en')
       
     //- font awesome 
     link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css")
-    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css")
+
+
+    script.
+      UPLOADCARE_PUBLIC_KEY = '169d4b0493c6f366f014';
+      UPLOADCARE_TABS = 'file camera';
+      UPLOADCARE_IMAGES_ONLY = true;
+
+    script(charset='utf-8', src='https://ucarecdn.com/widget/2.8.2/uploadcare/uploadcare.full.min.js')
 
     link(rel="stylesheet" href="/stylesheets/styles.css")
 
   body(style="background-image:url('http://i.imgur.com/aOTYJfh.png');background-size:cover")
+
 
     div.views
       div.views.view-main
@@ -29,7 +37,6 @@ html(lang='en')
           div(data-page="home" class="page toolbar-fixed navbar-fixed")
         
         block content
-
 
 
 
