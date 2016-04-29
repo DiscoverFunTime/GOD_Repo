@@ -1,20 +1,36 @@
-body {
-    background-image: url(http://i.imgur.com/aOTYJfh.png);
-    /*background-image: url(http://i.imgur.com/q5oQYwA.png);*/
-    background-size: cover;
-    background-repeat: no-repeat;
-}
 .container {
-background-size: cover;
-background-repeat: no-repeat;
-  
+/*background-size: cover;
+background-repeat: no-repeat;*/ 
 }
 
-#load {
-
+#load { 
+  padding: 0;
 }
 
+/*mountain background*/
+#loadBack {
+  width: 100%;
+}
+#mountain {
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/*ellements on the landing page*/
 #landingComp {
-  /*visibility: hidden;*/
+  width: 100%;
+  visibility: hidden;
+  /*display: flex;
+  align-items: center;*/
+}
+#logoLand {
+  margin-top: 40px;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
+.pages.navbar-through {
+visibility: hidden;
 }
