@@ -1,5 +1,5 @@
 
-extends ../layout.jade
+extends ../clans/clanLayout.jade
 
 
 block scripts
@@ -24,17 +24,22 @@ block content
     .right
       a(href="#" data-panel="right" class='open-panel link icon-only')
        i.icon.icon-bars
-                    //- a(href="/settings").open-panel.link.icon-only 
+                    //- a(href="/settings").open-panel.link.icon-only
         
  .pages.navbar-through
   .page(data-page="infinite-scroll")
-    form(class="searchbar")
+    form(class="searchbar" action="/search" method="POST")
      div(class="searchbar-input")
-       input(type="search" placeholder="")
+       input(type="search" name="tag" placeholder="search all tag")
       //- a(href="#" class="searchbar-clear")
       //- a href="#" class="searchbar-cancel">Cancel</a>
     div(class="searchbar-overlay")
     .page-content
+      div(style="display:inline-flex; flex-wrap:wrap")
+        each result in results
+          div(style="margin:10px")
+            a(href="/posts/#{result.p_id}")
+              img(src=result.url style="height:100px; width:100px")
 
  div(class="toolbar toolbar-bottom" style="bottom:64px; opacity:0.7")
     div(class="toolbar-inner")
