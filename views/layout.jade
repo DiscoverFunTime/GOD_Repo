@@ -22,30 +22,27 @@ html(lang='en')
       
     //- font awesome 
     link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css")
+    
+    //- jQuery
+    script(src='https://code.jquery.com/jquery-2.2.3.js', integrity='sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=', crossorigin='anonymous')
 
+    //- UploadCare
+    script
+      UPLOADCARE_PUBLIC_KEY = '169d4b0493c6f366f014';
+      UPLOADCARE_TABS = 'file camera';
+      UPLOADCARE_IMAGES_ONLY = true;
+    script(charset='utf-8', src='https://ucarecdn.com/widget/2.8.2/uploadcare/uploadcare.full.min.js')
 
     link(rel="stylesheet" href="/stylesheets/styles.css")
     block style
   body(style="background-image: url('http://i.imgur.com/q5oQYwA.png');background-size:cover")
 
-    div(class="toolbar toolbar-bottom" style="bottom:0px; opacity:0.7")
-     div(class="toolbar-inner")
-            a(href="/search" class="link external") Search
-            a(href="/posts" class="link external") Post
-            a(href="/users" class="link external") HOME
-            a(href="/users/#{currentUser.id}" class="link external") User Page
-            a(href="/clans" class="link external") Clan Page
+
         
 
     block content
 
-    div(class="toolbar toolbar-inner toolbar-bottom" style="bottom:0px; opacity:0.7")
-      
-        a(href="/search" class="link external" style='font-size:0.5 em') Search
-        a(href="/posts" class="link external") Post
-        a(href="/users" class="link external") HOME
-        a(href="/users/#{currentUser.id}" class="link external") User Page
-        a(href="/clans" class="link external") Clan Page
+
 
     script(type="text/javascript" src="js/framework7.min.js")
 
