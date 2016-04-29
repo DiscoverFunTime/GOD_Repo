@@ -7,6 +7,7 @@ router.use(helpers.ensureAuthenticated)
 
 // GET /clans INDEX: show top 10 exsiting clans - order by "points"
 router.get('/',function(req,res){
+  // eval(require('locus'))
   knex('clans').orderBy('points').limit(10).then(function(clans){
     res.render("./clans/index",{clans})
   })
@@ -27,9 +28,10 @@ router.get('/:id',function(req,res){
   })
 
   // Join two tables to get posts of the clan
-  knex('clans as c').select('c.id as c_id','uc.user_id as u_id','p.id as p_id','p.url','p.description','p.location','p.lat','p.long','p.created_at')
+  knex('clans as c').select('c.id as c_id','uc.user_id as u_id','p.id as p_id','p.url','p.description','p.location','p.lat','p.long','p.created_at','u.display_name')
   .join('user_clan as uc','c.id','uc.clan_id')
   .join('posts as p','p.user_id','uc.user_id')
+  .join('users as u','u.id','p.user_id')
   .where('c.id',clan_id).then(function(clanPosts){
     res.render("./clans/show",{clanPosts});
   })
@@ -53,7 +55,7 @@ router.post('/', function(req,res){
 // GET /clans/:id/edit EDIT form to change context
 router.get('/:id/edit', function(req,res){
   knex('clans').where('id',clan_id).first().then(function(clan){
-    res.render('./clans/edit',{clan})
+    res.render('./clans/edit',{clanInfo})
   })
 })
 
@@ -61,7 +63,8 @@ router.get('/:id/edit', function(req,res){
 router.put('/:id', function(req,res){
   // find in db and update
   var clan_id = req.params.id;
-  knex('clans').where('id',clan_id).update(req.body.updateClan).then(function(clan){
+  // eval(require('locus'))
+  knex('clans').where('id',clan_id).update(req.body.clan).then(function(clan){
     res.redirect(`/clans/${clan_id}`)
   })
 })
