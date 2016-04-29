@@ -15,7 +15,8 @@ block content
               img(src="#{currentUser.profilePicture}")
               br
               label profile picture
-              button upload new picture
+              form.text-center(action="/posts" method="POST")
+                input(type='hidden', role='uploadcare-uploader', data-image-shrink='1080x1080 80%', data-crop='1:1' name="post[url]")
               br
               label display name
               input(type="text" value="#{currentUser.display_name}" name="updateUser[display_name]")

@@ -13,14 +13,15 @@ router.get('/',function(req,res){
 })
 
 router.post('/', function(req, res) {
+  console.log(req.body)
   var pattern = /preview/i;
   var imgPath = req.body.post.url;
   var tags = req.body.tag;
   var tagList = tags.split(',').map(function(tag) {
     return tag.trim();
   });
-  request(imgPath.replace(pattern, 'json'), function (error, response, body){ // Sends GET request to UploadCare CDN to retrieve EXIF data
-    var geo = JSON.parse(body).original.geo_location; // Retrieve geolocation data from the JSON received from the CDN
+request(imgPath.replace(pattern, 'json'), function (error, response, body){ // Sends GET request to UploadCare CDN to retrieve EXIF data
+    var geo = {latitude: null, longitude: null} || JSON.parse(body).original.geo_location; // Retrieve geolocation data from the JSON received from the CDN
     newPost = req.body.post;
 
     newPost.lat = geo.latitude || 37.78758641666666
@@ -35,7 +36,7 @@ router.post('/', function(req, res) {
           knex('post_tag').insert({post_id: latestPost.id, tag: tag}).then();    
         });    
       });
-      res.redirect('/posts');
+      res.redirect('/users/' + req.user.id);
     });
   });
 });

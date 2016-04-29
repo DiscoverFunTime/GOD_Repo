@@ -17,12 +17,16 @@ html(lang='en')
       
     //- font awesome 
     link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css")
-
+    script.
+      UPLOADCARE_PUBLIC_KEY = '169d4b0493c6f366f014';
+      UPLOADCARE_TABS = 'file camera';
+      UPLOADCARE_IMAGES_ONLY = true;
+    script(charset='utf-8', src='https://ucarecdn.com/widget/2.8.2/uploadcare/uploadcare.full.min.js')
 
     link(rel="stylesheet" href="/stylesheets/styles.css")
 
   body(style="background-image:url('http://i.imgur.com/aOTYJfh.png');background-size:cover")
-
+    
     script(type="text/javascript" src="/js/framework7.min.js")
     script(type="text/javascript" src="/js/clans.js")
     div(class="toolbar toolbar-inner toolbar-bottom" style="bottom:100px; opacity:0.7")
