@@ -1,8 +1,7 @@
-
 const express = require("express");
 const app = express();
 
-if (app.get('env') === 'development') {
+if (app.get('env') === 'development' || app.get("env") === "test") {
     require('dotenv').load();
 }
 
@@ -25,6 +24,7 @@ app.use(methodOverride('_method'));
 app.use(morgan('dev'));
 app.set("view engine", "jade");
 app.set('views', __dirname + '/views'); 
+
 // Forces server to load fakeViews; comment out for real views
 // app.set('views', __dirname + '/fakeViews'); 
 
@@ -71,4 +71,8 @@ var port = process.env.PORT || 3000;
 app.listen(port, function() {
     console.log(`Listening on port ${port}`);
 })
+
+
+// Export module only for testing
+module.exports = app;
 

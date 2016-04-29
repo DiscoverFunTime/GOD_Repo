@@ -6,7 +6,8 @@ block content
     input(type="text" name="tag")
     input(type="submit" value="search")
   hr
-
+  
+  h3 #{tag}
   div(style="display:inline-flex").result-container
     each result in results
       div(style="margin:10px")

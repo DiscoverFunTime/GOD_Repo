@@ -10,20 +10,17 @@ module.exports = {
       debug: true
   },
 
-  staging: {
-    client: 'postgresql',
+  // Adding testing environment
+  test:{
+    client: 'pg',
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+      database: 'boken_app_test'
     },
     pool: {
-      min: 2,
-      max: 10
+      min: 1,
+      max: 5
     },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
+      debug:true
   },
 
   production: {
