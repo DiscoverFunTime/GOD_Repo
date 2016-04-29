@@ -12,6 +12,7 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const facebookCallback = process.env.NODE_ENV === 'production' ? 'https://boken-app.herokuapp.com/auth/facebook/callback' : 'http://localhost:3000/auth/facebook/callback'
 const googleCallback = process.env.NODE_ENV === 'production' ? 'https://boken-app.herokuapp.com/auth/google/callback' : "http://localhost:3000/auth/google/callback"
 
+
 // LOCAL Strategy
 passport.use(new LocalStrategy({
   usernameField:'user[username]',
