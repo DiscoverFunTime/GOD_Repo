@@ -1150,7 +1150,7 @@ body {
   background-color: white;
 }
 body.sign-in-up {
-  background: #2e2f41 url(../images/a9wPVK5.png) 0 0 no-repeat fixed;
+  /*background: #2e2f41 url(../images/mountian1280.png) 0 0 no-repeat fixed;*/
   background-size: cover;
 }
 
@@ -3648,7 +3648,7 @@ tbody.collapse.in {
   padding: 30px 0;
   margin-bottom: 0;
   color: white;
-  background: #2e2f41 url(../images/a9wPVK5.png) 0 0 no-repeat;
+  background: #2e2f41 url(../images/mountian1280.png) 0 0 no-repeat;
   background-size: cover;
   text-align: center;
 }
@@ -3660,6 +3660,7 @@ tbody.collapse.in {
   margin-bottom: 15px;
   font-size: 20px;
   font-weight: 200;
+  text-shadow: 3px 1px 4px rgba(150, 150, 150, 1);
 }
 .jumbotron > hr {
   border-top-color: #d7dbde;
@@ -3681,7 +3682,7 @@ tbody.collapse.in {
   }
   .jumbotron h1,
   .jumbotron .h1 {
-    font-size: 44px;
+    font-size: 40px;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 320px) {
@@ -3694,7 +3695,7 @@ tbody.collapse.in {
   display: inline-block;
   margin-left: auto;
   margin-right: auto;
-  width: 250px;
+  width: 80%;
   height: auto;
   margin-top: 50px;
   margin-bottom: 20px;
@@ -6268,6 +6269,7 @@ tbody.collapse.in {
   height: auto;
   margin-bottom: 40px;
 }
+
 .sign-in-up-section .footer-copyright {
   color: white;
 }
