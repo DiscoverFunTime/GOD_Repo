@@ -25,8 +25,7 @@ router.post('/', function(req, res) {
 
     newPost.lat = geo.latitude || 37.78758641666666
     newPost.long = geo.longitude || -122.39646169444445
-    newPost.user_id = 1;
-    console.log(geo);
+    newPost.user_id = req.user.id;
 
 
     knex('posts').insert(newPost)
