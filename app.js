@@ -1,8 +1,7 @@
-
 const express = require("express");
 const app = express();
 
-if (app.get('env') === 'development') {
+if (app.get('env') === 'development' || app.get("env") === "test") {
     require('dotenv').load();
 }
 
@@ -19,7 +18,6 @@ const helpers = require("./helpers/authHelpers")
 
 
 // SET UP MIDDLEWARE
-// const upload = multer({ dest: __dirname + '/public/uploads/'})
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
@@ -29,7 +27,6 @@ app.set('views', __dirname + '/views');
 
 // Forces server to load fakeViews; comment out for real views
 // app.set('views', __dirname + '/fakeViews'); 
-
 
 
 app.use(session({secret: process.env.SESSION_SECRET}));
@@ -65,7 +62,7 @@ app.get('/web', function(req, res){
 
 // ERROR
 app.get('*', function(req, res){
-  res.render('404')
+  res.render('./errors/404')
 });
 
 
@@ -74,4 +71,8 @@ var port = process.env.PORT || 3000;
 app.listen(port, function() {
     console.log(`Listening on port ${port}`);
 })
+
+
+// Export module only for testing
+module.exports = app;
 
