@@ -2,55 +2,66 @@
 extends ./clanLayout.jade
 
 block content
- div.views
-  div(class='views view-main') 
-     div(class="panel-overlay")
-     div(class="panel panel-right panel-cover" style='background-color:#D7D0FF; opacity:0.7; width:70%; height:100%')
-        div(class="content-block" style='margin: 130px 0; ')
-          ul(style='list-style-type:none; margin:0 auto; font-size:1em ')
-           li(style='color:black;') 
-            Span CREATE NEW CLAN
-             br
-             br
-             br
-             form(action="/clans" method="POST" style='color:black')
-               label Clan Name
-               br
-               input(type="text" name="clan[clan_name]")
-               br
-               label Specialty (Intro)
-               br
-               input(type="text" name="clan[intro]")
-               br
-               input(type="submit" value="create clan")
+  .navbar
+    .navbar-inner
+      .left.sliding
+      .center.sliding Clan Index
+      .right
+        a(href="#" data-panel="right" class='open-panel link icon-only')
+         i.icon.icon-bars
+
+  div(class="panel-overlay")
+  div(class="panel panel-right panel-cover" style='background-color:#D7D0FF; opacity:0.7; width:70%; height:100%')
+    div(class="content-block" style='margin: 130px 0; ')
+      ul(style='list-style-type:none; margin:0 auto; font-size:1em ')
+       li(style='color:black;') 
+        Span CREATE NEW CLAN
+         br
+         br
+         br
+         form(action="/clans" method="POST" style='color:black')
+           label Clan Name
            br
-           br 
+           input(type="text" name="clan[clan_name]")
+           br
+           label Specialty (Intro)
+           br
+           input(type="text" name="clan[intro]")
+           br
+           input(type="submit" value="create clan")
+       br
+       br 
 
-     .navbar
-      .navbar-inner
-        .left.sliding
-        .center.sliding Clan Index
-        .right
-          a(href="#" data-panel="right" class='open-panel link icon-only')
-           i.icon.icon-bars
    
-     .page-content(style='padding-top: 75px')
-      //- div(class='content-block-title' style='font-size:2.1em; color: blue') Dogpatch Explorers
-      h3(style='text-align:center; color:crimson') Display top 10 clans
-      ul(style='list-style-type:none')
-       each clan in clans
-        li
-         h4
-           a(href="/clans/#{clan.id}" class="link external")= clan.clan_name
-         p= clan.intro
-         form(action="/clans/#{clan.id}/user" method="POST")
-           input(type="submit" value="join this clan")
+  .page-content
+    //- div(class='content-block-title' style='font-size:2.1em; color: blue') Dogpatch Explorers
+    h3(style='text-align:center; color:crimson') Display top 10 clans
+    ul(style='list-style-type:none')
+     each clan in clans
+      li
+       h4
+         a(href="/clans/#{clan.id}" class="link external")= clan.clan_name
+       p= clan.intro
+       form(action="/clans/#{clan.id}/user" method="POST")
+         input(type="submit" value="join this clan")
 
-      .list-block.center
-        ul
-          -for (i = 1; i <= 10; i++)
-            li.item-content
-              .item-inner
-                div(class='item-title' style='margin:0 auto') 
-                  img(src='http://lorempixel.com/600/600')
-                
+    .list-block.center
+      ul
+        -for (i = 1; i <= 10; i++)
+          li.item-content
+            .item-inner
+              div(class='item-title' style='margin:0 auto') 
+                img(src='http://lorempixel.com/600/600')
+
+  .toolbar.toolbar-bottom(style="opacity:0.7")
+    .toolbar-inner
+      a(href="/search" class="link external" style='font-size:0.5 em')
+       i(class="fa fa-2x fa-search" aria-hidden="true")
+      a(href="/posts" class="link external")
+       i(class="fa fa-2x fa-camera" aria-hidden="true")
+      a(href="/users" class="link external") 
+       i(class="fa fa-3x fa-home" aria-hidden="true")
+      a(href="/users/#{currentUser.id}" class="link external")
+       i(class="fa fa-2x fa-user" aria-hidden="true")
+      a(href="/clans" class="link external")
+       i(class="fa fa-2x fa-users" aria-hidden="true")
