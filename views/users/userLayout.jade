@@ -7,6 +7,7 @@ html(lang='en')
     meta(name="apple-mobile-web-app-capable" content="yes")
     meta(name="apple-mobile-web-app-status-bar-style" content="black")
     title ¡Bøken!
+    
     //- FRAMEWORK7 Stylesheets
     link(rel="stylesheet" href="/stylesheets/framework7.ios.css")
     link(rel="stylesheet" href="/stylesheets/framework7.ios.colors.min.css")
@@ -25,33 +26,27 @@ html(lang='en')
 
 
     link(rel="stylesheet" href="/stylesheets/styles.css")
-    block style
-  body(style="background-image: url('http://i.imgur.com/q5oQYwA.png');background-size:cover")
 
+  body(style="background-image:url('http://i.imgur.com/aOTYJfh.png');background-size:cover")
 
-    div(class="toolbar toolbar-bottom" style="bottom:0px; opacity:0.7")
-     div(class="toolbar-inner")
-            a(href="/search" class="link external") Search
-            a(href="/posts" class="link external") Post
-            a(href="/users" class="link external") HOME
-            a(href="/users/#{currentUser.id}" class="link external") User Page
-            a(href="/clans" class="link external") Clan Page
-        
-
-
-    block content
-
-    div(class="toolbar toolbar-inner toolbar-bottom" style="bottom:0px; opacity:0.7")
+    script(type="text/javascript" src="/js/framework7.min.js")
+    script(type="text/javascript" src="/js/clans.js")
+    div(class="toolbar toolbar-inner toolbar-bottom" style="bottom:0px; opacity:0.7;")
       
         a(href="/search" class="link external" style='font-size:0.5 em') Search
         a(href="/posts" class="link external") Post
         a(href="/users" class="link external") HOME
         a(href="/users/#{currentUser.id}" class="link external") User Page
         a(href="/clans" class="link external") Clan Page
+    block content
 
 
-    script(type="text/javascript" src="js/framework7.min.js")
-    script(src='https://code.jquery.com/jquery-2.2.3.js', integrity='sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=', crossorigin='anonymous')
 
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous")
+
+    //- FRAMEWORK7 Script
+
+    
 
     block scripts

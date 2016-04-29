@@ -1142,8 +1142,7 @@ html.ios-gt-8 .toolbar b {
 .navbar a.link,
 .toolbar a.link,
 .subnavbar a.link {
-  line-height: 44px;
-  height: 44px;
+  font-size: 0.9em;
   text-decoration: none;
   position: relative;
   display: -webkit-box;

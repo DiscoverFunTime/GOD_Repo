@@ -28,6 +28,7 @@ router.post('/', function(req, res) {
     newPost.user_id = 1;
     console.log(geo);
 
+
     knex('posts').insert(newPost)
     .then(function (){
       knex('posts').select('id').orderBy('id', 'desc').first().then(function(latestPost){
