@@ -5,31 +5,31 @@ block scripts
 
 
 block content
- div.views
-  div(class='views view-main') 
-     div(class="panel-overlay")
-     div(class="panel panel-right panel-cover" style='background-color:#D7D0FF; opacity:0.7; width:60%; height:100%')
-        div(class="content-block" style='margin: 130px 0; ')
-          ul(style='list-style-type:none; margin:0 auto; font-size:1em ')
-           li(style='color:black;') 
-            Span Edit User
+   div.views
+    div(class='views view-main') 
+       div(class="panel-overlay")
+       div(class="panel panel-right panel-cover" style='background-color:#D7D0FF; opacity:0.7; width:60%; height:100%')
+          div(class="content-block" style='margin: 130px 0; ')
+            ul(style='list-style-type:none; margin:0 auto; font-size:1em ')
+             li(style='color:black;') 
+              Span Edit User
+               br
+               br
+               br
+               form(action="/clans" method="POST" style='color:black')
+                 label User Name
+                 br
+                 input(type="text" name="clan[clan_name]" value='username')
+                 br
+                 label Favorite Cake
+                 br
+                 input(type="text" name="clan[intro]")
+                 br
+                 input(type="submit" value="create clan")
              br
-             br
-             br
-             form(action="/clans" method="POST" style='color:black')
-               label User Name
-               br
-               input(type="text" name="clan[clan_name]" value='username')
-               br
-               label Favorite Cake
-               br
-               input(type="text" name="clan[intro]")
-               br
-               input(type="submit" value="create clan")
-           br
-           br 
-           //- li
-           //-   a(href="#" style='color:black') list clan members (newpage?)
+             br 
+             //- li
+             //-   a(href="#" style='color:black') list clan members (newpage?)
      .navbar
       .navbar-inner
         .left.sliding
