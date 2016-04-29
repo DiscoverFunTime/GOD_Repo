@@ -3207,8 +3207,8 @@ select[multiple].input-lg,
 
 .btn-danger {
   color: white;
-  background-color: #dc554f;
-  border-color: #d8403a;
+  background-color: #6D5C87;
+  border-color: #6D5C87;
 }
 .btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .open > .btn-danger.dropdown-toggle {
   color: white;
@@ -6051,8 +6051,8 @@ tbody.collapse.in {
   background: transparent;
   border-width: 2px;
   border-style: solid;
-  border-color: #dc554f;
-  color: #dc554f;
+  border-color: #6D5C87;
+  color: #6D5C87;
   padding-top: 8px !important;
   padding-bottom: 8px !important;
 }
