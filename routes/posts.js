@@ -23,10 +23,9 @@ router.post('/', function(req, res) {
     var geo = JSON.parse(body).original.geo_location; // Retrieve geolocation data from the JSON received from the CDN
     newPost = req.body.post;
 
-    newPost.lat = geo.latitude || 123
-    newPost.long = geo.longitude || 123
-    newPost.user_id = 1;
-    console.log(geo);
+    newPost.lat = geo.latitude || 37.78758641666666
+    newPost.long = geo.longitude || -122.39646169444445
+    newPost.user_id = req.user.id;
 
 
     knex('posts').insert(newPost)
