@@ -9,7 +9,10 @@ const helpers = require("../helpers/authHelpers")
 
 // GET /users Index: ensureLogin
 router.get('/',helpers.ensureAuthenticated,function(req,res){
-  res.render("./users/index", {message:req.flash('success')})
+  knex('posts as p').select('u.display_name','p.description','p.location','p.url')
+  .join('users as u', 'u.id','p.user_id').orderBy('p.created_at','desc').then(function(feeds){
+    res.render("./users/index", {feeds})
+  })
 })
 
 

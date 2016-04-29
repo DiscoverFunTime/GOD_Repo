@@ -12,7 +12,7 @@ block content
            li(style='color:black;') 
             Span Edit User
             form(action="/users/#{currentUser.id}?_method=put" method="POST")
-              img(src="#{currentUser.profilePicture}")
+              img(src="#{currentUser.profilePicture}" style="border-radius: 100px")
               br
               label profile picture
               input(type='hidden', role='uploadcare-uploader', data-image-shrink='320x320 80%', data-crop='1:1' name="updateUser[url]")
@@ -44,28 +44,35 @@ block content
         .center.sliding 
         .right
           a(href="#" data-panel="right" class='open-panel link icon-only')
-           i.icon.icon-bars   
-    .page-content(style='padding-top: 75px') 
-      img(src='#{currentUser.profilePicture}')        
-      h1 #{currentUser.display_name}
-      br
-      h5 #{currentUser.email}
-      h6 id: #{currentUser.id} 
-      h4 Joined Clans:
-      ul(style='list-style-type:none')
-       each clan in clanInfo
-        li= clan.clan_name
+           i.icon.icon-bars
+
+    .page-content(style='padding-top: 75px')
+      .row
+        .col-xs-3
+          img(src='#{currentUser.profilePicture}' style="border-radius: 100px; height:70px; width:auto; margin-left:15%")
+        .col-xs-9 
+          h2 #{currentUser.display_name}
+      .row
+        .col-xs-12
+          //- h5 #{currentUser.email}
+          //- h6 id: #{currentUser.id} 
+          h4 Joined Clans:
+            ul(style='list-style-type:none')
+             each clan in clanInfo
+              li= clan.clan_name
       hr
-      h3 Post of #{currentUser.display_name}
-      each obj in collection
-        div
-          img(src=obj.url height="auto" width="400")
-          h4= obj.description
-          h5= obj.location
+      .row
+        .col-xs-12
+          h3 Post of #{currentUser.display_name}
+          each obj in collection
+            div
+              img(src="#{obj.url}" height="auto" width="400")
+              h4= obj.description
+              h5= obj.location
 
       //- -------------------------
-      hr
-      h3 Post #{currentUser.display_name} liked
+      //- hr
+      //- h3 Post #{currentUser.display_name} liked
 
 
       //- -------------------------
