@@ -9,20 +9,20 @@ block content
         div(class="content-block" style='margin: 130px 0; ')
           ul(style='list-style-type:none; margin:0 auto; font-size:1em ')
            li(style='color:black;') 
-            Span CREATE NEW CLAN
+            Span Poop
              br
              br
              br
              form(action="/clans" method="POST" style='color:black')
-               label Clan Name
+               label ...
                br
-               input(type="text" name="clan[clan_name]")
+               input(type="text" name="")
                br
-               label Specialty (Intro)
+               label ///
                br
-               input(type="text" name="clan[intro]")
+               input(type="text" name="")
                br
-               input(type="submit" value="create clan")
+               input(type="submit" value="")
            br
            br 
 
@@ -36,15 +36,22 @@ block content
    
      .page-content(style='padding-top: 75px')
       //- div(class='content-block-title' style='font-size:2.1em; color: blue') Dogpatch Explorers
-      h3(style='text-align:center; color:crimson') Display top 10 clans
-      ul(style='list-style-type:none')
-       each clan in clans
-        li
-         h4
-           a(href="/clans/#{clan.id}" class="link external")= clan.clan_name
-         p= clan.intro
-         form(action="/clans/#{clan.id}/user" method="POST")
-           input(type="submit" value="join this clan")
+      h3(style='text-align:center; color:crimson') Post a pic of your bøken!
+      div(style='text-align:center')
+      form.text-center(action="/posts" method="POST")
+        input(type='hidden', role='uploadcare-uploader', data-image-shrink='1080x1080 80%', data-crop='1:1' name="uuid")
+        br
+        br
+        input(type="text" placeholder="location" name="location")
+        br
+        br
+        br
+        input(type="text" placeholder="description" name="name")
+        br
+        br
+        input.btn-info.btn.btn-sm(type="submit" style='width:30%' value="submit")
+      hr
+
 
       .list-block.center
         ul
