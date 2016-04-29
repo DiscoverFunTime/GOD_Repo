@@ -9,6 +9,8 @@ const LocalStrategy = require('passport-local').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
+const facebookCallback = process.env.NODE_ENV === 'production' ? 'https://boken-app.herokuapp.com/auth/facebook/callback' : 'http://localhost:3000/auth/facebook/callback'
+const googleCallback = process.env.NODE_ENV === 'production' ? 'https://boken-app.herokuapp.com/auth/google/callback' : "http://localhost:3000/auth/google/callback"
 
 // LOCAL Strategy
 passport.use(new LocalStrategy({
@@ -41,7 +43,7 @@ passport.use(new LocalStrategy({
 passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_ID,
     clientSecret: process.env.FACEBOOK_SECRET,
-    callbackURL: "http://localhost:3000/auth/facebook/callback",
+    callbackURL: facebookCallback,
     profileFields:['id','picture','email','location']
   },function(accessToken, refreshToken, profile, done) {
       knex('users').where('facebookId',profile.id).first().then(function(user){
@@ -71,7 +73,7 @@ passport.use(new FacebookStrategy({
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/google/callback"
+    callbackURL: googleCallback,
   },function(accessToken, refreshToken, profile, done) {
     // eval(require('locus'))
       knex('users').where('googleId',profile.id).first().then(function(user){
